@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# <window shopping>
 
-Things you may want to cover:
+## サイト概要
+### サイトテーマ
+日頃行っている作業をデジタル化する
 
-* Ruby version
+### テーマを選んだ理由
+　店舗と本社のマーケティングについての考え方にギャップを無くしたい。顧客の購買意欲の向上を図るためにはどうすればいいのかという課題を改善したいという思いからユーザのニーズを図るサイトを作ろうと思います。
+　前職では、ショップ店員をしていた時期があります。1日に3回以上マネキンのコーディネートを変更していました。この日頃当たり前に行なっている作業を有効活用することで課題を改善したいと思いました。
+店舗に来ていない顧客にも閲覧できるようマネキンの画像を投稿できるようにします。いいねの数を集計することで顧客のニーズを測ることができ、ショップ店員の生の声を数字に表すことができます。
+また、顧客はたくさんのコーディネートの閲覧をすることにより、購買意欲を向上させることができるのではないかと考えました。
 
-* System dependencies
 
-* Configuration
+### ターゲットユーザ
+顧客、店舗スタッフ
+### 主な利用シーン
+店舗に行かなくても店舗のコーディネートを閲覧できる
+## 設計書
+<...>
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
