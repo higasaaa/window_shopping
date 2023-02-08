@@ -15,19 +15,21 @@ Rails.application.routes.draw do
     get 'customers' => 'customers#show'
     resources :comments, only: [:index, :update, :destroy, :create, :destroy]
     resource :favorites, only: [:create, :destroy]
-    
+
   end
 
   devise_scope :customer do
     post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
-  
+
    # 管理者側のルーティング設定
    namespace :admin do
     get '/' => 'homes#top'
-    resources :coordinate_tags, only: [:new, :create, :index, :edit, :update]
+    resources :coordinates, only: [:new, :create, :index, :edit, :update]
+    # post 'coordinates/new' => 'coordinates#new'
     resources :tags, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :edit, :update]
+    #coordinate_tags
   end
 
   # 顧客用
