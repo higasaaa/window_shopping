@@ -63,11 +63,10 @@ ActiveRecord::Schema.define(version: 2023_02_08_103528) do
   end
 
   create_table "coordinates", force: :cascade do |t|
-    t.integer "tag_name_id"
+    t.integer "tag_id"
     t.integer "favorite_id"
     t.text "coordinates_description", null: false
     t.integer "total_price", null: false
-    t.string "tag_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

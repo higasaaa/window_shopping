@@ -12,11 +12,11 @@
     </tr>
   </thead>
   <tbody>
-    <% @coordinates.each do |coordinate| %>
+    <!--<% @coordinates.each do |coordinate| %>-->
     <tr>
       <td><%= image_tag coordinate.get_coordinate_image(80,80) %></td>
       <td><%= coordinate.id %></td>
-      <td><%= coordinate.tag_name %></td>
+      <td><%= coordinate.tag.tag_name %></td>
       <td><%= coordinate.total_price %></td>
       <td><%= coordinate.favorite_id %></td> <!--まだない-->
     </tr>

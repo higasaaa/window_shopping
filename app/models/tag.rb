@@ -1,3 +1,3 @@
 class Tag < ApplicationRecord
-  has_one :coordinate
+  has_many :coordinates, dependent: :destroy
 end

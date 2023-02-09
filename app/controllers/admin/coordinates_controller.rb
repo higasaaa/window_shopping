@@ -11,7 +11,7 @@ class Admin::CoordinatesController < ApplicationController
   end
 
   def create
-    
+    # byebug
     @coordinate = Coordinate.new(coordinate_params)
     @coordinate.save
     redirect_to admin_coordinates_index_path #admin/index
@@ -24,6 +24,6 @@ class Admin::CoordinatesController < ApplicationController
 private
 
   def coordinate_params
-    params.require(:coordinate).permit(:image, :coordinates_description, :total_price, :tag_name)
+    params.require(:coordinate).permit(:image, :coordinates_description, :total_price, :tag_id)
   end
 end
