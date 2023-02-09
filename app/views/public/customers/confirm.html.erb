@@ -1,2 +1,12 @@
 <h1>Public::Customers#confirm</h1>
 <p>Find me in app/views/public/customers/confirm.html.erb</p>
+<h2>退会確認画面</h2>
+
+<h6>本当に退会しますか？</h6>
+<p>退会すると、会員登録情報が全て閲覧できなります。<br>
+退会する場合は、「退会する」をクリックしてください。</p>
+
+<div class="text-center">
+  <%= link_to '退会しない', edit_customers_path, class:'btn btn-sm mr-3', style:"background-color: #F3F1EA" %>
+  <%= link_to '退会する', withdrawal_path, method: :patch, data: { confilm: "本当に退会しますか？" }, class:'btn btn-sm btn-danger' %>
+</div>

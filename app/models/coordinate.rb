@@ -1,7 +1,7 @@
 class Coordinate < ApplicationRecord
   has_one_attached :image
   
-  belongs_to :coordinate_tag
+  belongs_to :tag
   has_many :favorites, dependent: :destroy
   
   def get_coordinate_image(width, height)

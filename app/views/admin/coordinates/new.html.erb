@@ -8,7 +8,7 @@
     <%= f.file_field :image, accept: "image/*" %>
 
     <h3>タグ名</h3>
-    <%#= f.select :tag_name_id %>
+    <%= f.select :tag_name_id, options_from_collection_for_select(Tag.all, :id, :tag_name), {} %> <!--プルダウン？-->
 
     <h3>合計金額</h3>
     <%= f.text_area :total_price %>

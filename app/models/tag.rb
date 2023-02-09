@@ -1,3 +1,3 @@
 class Tag < ApplicationRecord
-  belongs_to :coordinate_tag
+  has_one :coordinate
 end
