@@ -2,7 +2,7 @@
 <p>Find me in app/views/admin/coordinates/new.html.erb</p>
 
 
-<h2>画像投稿フォーム</h2>
+<h2>コーディネート投稿</h2>
   <%= form_with model: @coordinate, url:admin_coordinates_path do |f| %>
     <h3>画像</h3>
     <%= f.file_field :image, accept: "image/*" %>

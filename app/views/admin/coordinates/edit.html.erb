@@ -1,2 +1,20 @@
 <h1>Admin::Coordinates#edit</h1>
 <p>Find me in app/views/admin/coordinates/edit.html.erb</p>
+
+<h2>コーディネート編集</h2>
+  <%= form_with model: @coordinate, url:admin_coordinate_path(@coordinate.id), method: :patch do |f| %>
+    <h3>画像</h3>
+    <%= f.file_field :image, accept: "image/*" %>
+
+    <h3>タグ名</h3>
+    <%= f.select :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name), {} %> 
+
+    <h3>合計金額</h3>
+    <%= f.text_area :total_price %>
+
+    <h3>コーディネート説明</h3>
+    <%= f.text_area :coordinates_description %>
+
+    <%= f.submit 'コーディネート更新' %>
+  <% end %>
+  

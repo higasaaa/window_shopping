@@ -5,6 +5,7 @@ class Admin::TagsController < ApplicationController
   end
 
   def edit
+    @tag = Tag.find(params[:id])
   end
   
   def create
@@ -14,6 +15,10 @@ class Admin::TagsController < ApplicationController
   end
   
   def update
+    @tag = Tag.find(params[:id])
+    @tag.update(tag_params)
+    flash[:notice] = "タグの更新が成功しました。"
+    redirect_to admin_tags_path
   end
   
   private

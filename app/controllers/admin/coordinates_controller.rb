@@ -8,16 +8,22 @@ class Admin::CoordinatesController < ApplicationController
   end
 
   def edit
+    @coordinate = Coordinate.find(params[:id])
   end
 
   def create
     # byebug
     @coordinate = Coordinate.new(coordinate_params)
     @coordinate.save
-    redirect_to admin_coordinates_index_path #admin/index
+    redirect_to admin_coordinates_path #admin/index
   end
 
   def update
+    # byebug
+    @coordinate = Coordinate.find(params[:id])
+    @coordinate.update(coordinate_params)
+      flash[:notice] = "コーディネートの更新は成功しました。"
+      redirect_to admin_coordinates_path #admin/index
   end
 
 
