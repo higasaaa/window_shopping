@@ -1,2 +1,23 @@
 <h1>Public::Coordinates#show</h1>
 <p>Find me in app/views/public/coordinates/show.html.erb</p>
+<h2>コーディネート詳細</h2>
+
+<div>
+  <%= image_tag @coordinate.get_coordinate_image(250,200) %>
+</div>
+
+<div>
+  <div>コーディネート合計金額</div>
+  <div>タグ名</div>
+  <div>コーディネート説明</div>
+  <div>❤/<div>
+  <div>コメント数</div>
+</div>
+
+<div>
+  <div><%= @coordinate.tag.tag_name %></div>
+  <div><%= @coordinate.total_price %></div>
+  <div><%= @coordinate.coordinates_description %></div>
+  <div></div> <!--いいね数入る-->
+  <div></div> <!--コメント数入る-->
+</div>

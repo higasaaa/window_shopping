@@ -8,13 +8,15 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'
-    resources :coordinates, only: [:index, :show]
+    #resources :coordinates, only: [:index, :show] この位置においていた
     resource :customers, only: [:edit, :update]
     patch '/customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     get 'customers/confirm' => 'customers#confirm'
     get 'customers' => 'customers#show'
-    resources :comments, only: [:index, :update, :destroy, :create, :destroy]
-    resource :favorites, only: [:create, :destroy]
+    resources :coordinates, only: [:index, :show] do
+      resources :comments, only: [:index, :update, :destroy, :create, :destroy]
+      resource :favorites, only: [:create, :destroy]
+    end
 
   end
 

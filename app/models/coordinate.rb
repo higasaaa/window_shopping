@@ -3,6 +3,10 @@ class Coordinate < ApplicationRecord
   
   belongs_to :tag
   has_many :favorites, dependent: :destroy
+
+  def favorited_by?(customer) #引数で渡されたユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べる
+    favorites.exists?(customer_id: customer.id)
+  end
   
   def get_coordinate_image(width, height)
     unless image.attached?

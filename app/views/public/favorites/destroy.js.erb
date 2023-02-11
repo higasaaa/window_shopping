@@ -1,0 +1,2 @@
+
+document.getElementById('favorite_buttons_<%= @coordinate.id %>').innerHTML = ("<%= j(render "public/favorites/favorite", coordinate: @coordinate ) %>");

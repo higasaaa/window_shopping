@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 2023_02_08_103528) do
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "coordinate_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

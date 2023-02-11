@@ -7,5 +7,12 @@
     <% end %>
     <%= coordinate.tag.tag_name %>
     <%= coordinate.total_price %>
+
+    <!--いいね機能-->
+    <div id="favorite_buttons_<%= coordinate.id %>">
+      <%= render "public/favorites/favorite", coordinate: coordinate %>
+    </div>
+
+
   <% end %>
 </div>
