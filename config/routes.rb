@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'customers/confirm' => 'customers#confirm'
     get 'customers' => 'customers#show'
     resources :coordinates, only: [:index, :show] do
-      resources :comments, only: [:index, :update, :destroy, :create, :destroy]
+      resources :comments, only: [:index, :destroy, :create] #update削除する
       resource :favorites, only: [:create, :destroy]
     end
 

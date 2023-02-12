@@ -2,22 +2,52 @@
 <p>Find me in app/views/public/coordinates/show.html.erb</p>
 <h2>コーディネート詳細</h2>
 
+<table>
+  <thead>
+    <tr>
+      <th><%= image_tag @coordinate.get_coordinate_image(100,100) %></th>
+      <th>コーディネート合計</th>
+      <th>タグ名</th>
+      <th>コーディネート説明</th>
+      <th>いいね数</th>
+      <th>コメント数</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= @coordinate.total_price %></td>
+      <td><%= @coordinate.tag.tag_name %></td>
+      <td><%= @coordinate.coordinates_description %></td>
+      <td><%= @coordinate.favorites.count %></td>
+      <td>コメント数入る</td>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @coordinate.comments.each do |comment| %>
+    <tr>
+      <td><%= image_tag comment.coordinate.get_coordinate_image(100,100) %></td>
+      <td><%= comment.customer.nickname %></td>
+      <td><%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.content %></td>
+      <td>
+        <% if comment.customer == current_customer %>
+          <%= link_to "Destroy", coordinate_comment_path(comment.coordinate, comment),method: :delete, remote: true %>
+        <% end %>
+      </td>
+      
+    </tr>
+    <% end %>
+  </tbody>
+    
+  
+</table>
+
 <div>
-  <%= image_tag @coordinate.get_coordinate_image(250,200) %>
+  <%= form_with model:[@coordinate, @comment] do |f| %>
+    <%= f.text_area :content, placeholder:"コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
 </div>
 
 <div>
-  <div>コーディネート合計金額</div>
-  <div>タグ名</div>
-  <div>コーディネート説明</div>
-  <div>❤/<div>
-  <div>コメント数</div>
-</div>
-
-<div>
-  <div><%= @coordinate.tag.tag_name %></div>
-  <div><%= @coordinate.total_price %></div>
-  <div><%= @coordinate.coordinates_description %></div>
-  <div></div> <!--いいね数入る-->
-  <div></div> <!--コメント数入る-->
+  このコーディネートに対するコメント一覧は<%#= link_to "こちら", coordinate_comments_path(coordinate_id) %>
 </div>

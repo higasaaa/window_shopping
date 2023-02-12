@@ -1,0 +1,14 @@
+<tbody>
+  <% @coordinate.comments.each do |comment| %>
+  <tr>
+    <td><%= image_tag comment.coordinate.get_coordinate_image(100,100) %></td>
+    <td><%= comment.customer.nickname %></td>
+    <td><%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.content %></td>
+    <td>
+      <% if comment.customer == current_customer %>
+        <%= link_to "Destroy", coordinate_comment_path(comment.coordinate, comment),method: :delete, remote: true %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</tbody>
