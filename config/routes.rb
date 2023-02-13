@@ -28,6 +28,8 @@ Rails.application.routes.draw do
    namespace :admin do
     get '/' => 'homes#top'
     resources :coordinates, only: [:new, :create, :index, :edit, :update]
+    get 'coordinates/rank' => 'coordinates#rank'
+    get 'coordinates/rank/:year/:month' => 'coordinates#monthly_rank'
     resources :tags, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :edit, :update]
     #coordinate_tags

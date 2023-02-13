@@ -21,32 +21,13 @@
       <td>コメント数入る</td>
     </tr>
   </thead>
-  
-  <tbody>
-    <% @coordinate.comments.each do |comment| %>
-    <tr>
-      <td><%= image_tag comment.coordinate.get_coordinate_image(100,100) %></td>
-      <td><%= comment.customer.nickname %></td>
-      <td><%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.content %></td>
-      <td>
-        <% if comment.customer == current_customer %>
-          <%= link_to "Destroy", coordinate_comment_path(comment.coordinate, comment),method: :delete, remote: true %>
-        <% end %>
-      </td>
-      
-    </tr>
-    <% end %>
-  </tbody>
-    
-  
 </table>
 
-<div>
-  <%= form_with model:[@coordinate, @comment] do |f| %>
-    <%= f.text_area :content, placeholder:"コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
-</div>
+<!--コメントテンプレート-->
+<%= render "public/comments/index", coordinate: @coordinate %>
+
+<!--コメント投稿フォームテンプレート-->
+<%= render "public/comments/form", coordinate: @coordinate, comment: @comment %>
 
 <div>
   このコーディネートに対するコメント一覧は<%#= link_to "こちら", coordinate_comments_path(coordinate_id) %>

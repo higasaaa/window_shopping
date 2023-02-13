@@ -1,0 +1,9 @@
+<% if @year %>
+  <%= @year %>年 <%= @month %>月
+<% end %>
+
+<% @all_ranks.each do |coordinate| %>
+  <%= image_tag coordinate.get_coordinate_image(100,100) %>
+  <%= coordinate.cnt %>
+  <%= coordinate.tag_name %>
+<% end %>

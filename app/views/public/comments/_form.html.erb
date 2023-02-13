@@ -1,0 +1,6 @@
+<div>
+  <%= form_with model:[coordinate, comment] do |f| %>
+    <%= f.text_area :content, placeholder:"コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
