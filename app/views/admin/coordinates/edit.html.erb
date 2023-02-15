@@ -1,20 +1,30 @@
-<h1>Admin::Coordinates#edit</h1>
-<p>Find me in app/views/admin/coordinates/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>Editing coordinate</h2>
+      <%= form_with model: @coordinate, url:admin_coordinate_path(@coordinate.id), method: :patch do |f| %>
+        <div class="form-group">
+          <%= f.label :tag_name %>
+          <%= f.select :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name), {}, {class: "form-control"} %>
+        </div>
+        <div class="form-group">
+          <%= f.label :total_price %>
+          <%= f.text_field :total_price, class: "form-control" %>
+        </div>
+        <div class="input-group mb-3">
+          <%= f.label :image, class: "custom-file-label" %>
+          <%= f.file_field :image, accept: "image/*", class: "custom-file-input" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :coordinates_description %>
+          <%= f.text_area :coordinates_description, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "up date", class: "text-dark bg-light" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<h2>コーディネート編集</h2>
-  <%= form_with model: @coordinate, url:admin_coordinate_path(@coordinate.id), method: :patch do |f| %>
-    <h3>画像</h3>
-    <%= f.file_field :image, accept: "image/*" %>
 
-    <h3>タグ名</h3>
-    <%= f.select :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name), {} %> 
-
-    <h3>合計金額</h3>
-    <%= f.text_area :total_price %>
-
-    <h3>コーディネート説明</h3>
-    <%= f.text_area :coordinates_description %>
-
-    <%= f.submit 'コーディネート更新' %>
-  <% end %>
-  

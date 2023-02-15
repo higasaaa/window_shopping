@@ -1,49 +1,56 @@
-<h2>Sign up</h2>
+<h3></h3>
 
 <%= form_with model: @customer,url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-  
-  <div class="field">
-    <%= f.label :"ニックネーム" %>
-    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :"メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :"生年月日" %>
-    <%= f.date_select :birthdate, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %>
-  </div>
-  
-  <div class="field">
-    <%= f.label "パスワード" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+<h4 class="d-inline-block col-md-3 offset-3 px-3,mb-4 mt-4" style="background-color: ghostwhite">Sign up</h4><br>
+<div class="container">
+  <div class="row flex-nowrap">
+    <div class="col-md-3 offset-md-3">
+      <h6 class="mt-2"><%= f.label :"ニックネーム" %></h6>
+      <h6 class="mt-2"><%= f.label :"メールアドレス" %></h6>
+      <h6 class="mt-2"><%= f.label :"生年月日" %></h6>
+      <h6 class="mt-2"><%= f.label :"パスワード" %></h6>
+      <h6 class="mt-2"><%= f.label :"パスワード確認" %></h6>
+      <h6 class="mt-2"><%= f.label :"性別" %></h6>
+      <h6 class="mt-2"><%= f.label :"お住まいの地域" %></h6>
+    </div>
 
-  <div class="field">
-    <%= f.label "パスワード確認" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="col-mb-3">
+      <div class="field mb-2">
+        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+      </div>
+      <div class="field mb-2">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="field mb-2">
+        <%= f.date_select :birthdate, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %>
+      </div>
+      <div class="field mb-2">
+        <% if @minimum_password_length %>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :"性別" %>
-    <%= f.select :sex, [["",""], ["女性","女性"], ["男性","男性"]], {} %>
+      <div class="field mb-2">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+      <div class="field mb-2">
+        <%= f.select :sex, [["",""], ["女性","女性"], ["男性","男性"]], {} %>
+      </div>
+      <div class="field mb-2">
+        <%= f.text_field :live_area %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    </div>
   </div>
-  
-  <div class="field">
-    <%= f.label :"お住まいの地域" %>
-    <%= f.text_field :live_area %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+</div>
+
+
+
+
 <% end %>
 
 <%= render "public/shared/links" %>

@@ -1,14 +1,12 @@
-<h1>Admin::Coordinates#index</h1>
-<p>Find me in app/views/admin/coordinates/index.html.erb</p>
-<h2>コーディネート一覧</h2>
-<table>
-  <thead>
+<h1 style="font-size: 25px;">Coordinates</h1>
+<table class="table table-hover ml-auto mr-auto w-75">
+  <thead class="border-bottom border-top border-secondary" style="background-color: ghostwhite">
     <tr>
     <th></th>
-    <th>コーディネートID</th>
-    <th>タグ名</th>
-    <th>合計金額</th>
-    <th>いいね数</th>
+    <th>coordinate ID</th>
+    <th>tag name</th>
+    <th>total price</th>
+    <th>favorites</th>
     <th></th>
     </tr>
   </thead>
@@ -19,7 +17,7 @@
       <td><%= coordinate.id %></td>
       <td><%= coordinate.tag.tag_name %></td>
       <td><%= coordinate.total_price %></td>
-      <td><%= coordinate.favorite_id %></td> <!--まだない-->
+      <td><%= coordinate.favorites.count %></td> <!--まだない-->
       <td><%= link_to "編集する", edit_admin_coordinate_path(coordinate.id) %></td>
     </tr>
     <% end %>

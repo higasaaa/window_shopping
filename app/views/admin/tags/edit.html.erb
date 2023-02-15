@@ -1,9 +1,13 @@
-<h1>Admin::Tags#edit</h1>
-<p>Find me in app/views/admin/tags/edit.html.erb</p>
+<!--<p>Find me in app/views/admin/tags/edit.html.erb</p>-->
 <body>
-  <h5>タグ編集</h5>
-  <%= form_with model: @tag, url:admin_tag_path(@tag.id), method: :patch do |t| %>
-    <%= t.text_field :tag_name %>
-    <%= t.submit '変更を保存' %>
+  <h5 class="d-inline-block font-weight-bold" style="background-color: ghostwhite">Editing Tag</h5>
+  <div class="container">
+  <%= form_with model: @tag, url:admin_tag_path(@tag.id), method: :patch do |f| %>
+    <div class="row">
+      <%= f.label :tag_name, class: "mt-2 mr-3" %>
+      <%= f.text_field :tag_name, class: "w-20" %>
+      <%= f.submit "up date", class: "text-dark bg-light ml-3", style: "background-color: #F3F1EA" %>
+    </div>
+  </div>
   <% end %>
 </body>

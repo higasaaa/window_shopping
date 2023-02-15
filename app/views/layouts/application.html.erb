@@ -2,54 +2,145 @@
 <html>
   <head>
     <title>WindowShopping</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <!--css適応させるなら追記する-->
+    <!--link rel....-->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
-      <% if admin_signed_in? %>
-        <li>
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-        </li>
-        <li>
-          <%= link_to "コーディネート一覧", admin_coordinates_path %>
-        </li>
-        <li>
-          <%= link_to "会員一覧", admin_customers_path %>
-        </li>
+    <header style="width: 100%; background-color: #F3F1EA">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/"><span>Window shopping</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-      <% elsif customer_signed_in? %>
-        <li>
-          <%= link_to "マイページ", customers_path %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-        </li>
-        <li>
-          <%= link_to "コーディネート一覧", coordinates_path %>
-        </li>
+          <% if admin_signed_in? %>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto list-unstyled">
 
-      <% else %>
-        <li>
-          <%= link_to "About", about_path %>
-        </li>
-        <li>
-          <%= link_to "マイページ", customers_path %>
-        </li>
-        <li>
-          <%= link_to "コーディネート一覧", coordinates_path %>
-        </li>
-        <li>
-          <%= link_to "新規登録", new_customer_registration_path %>
-        </li>
-      <% end %>
+              <%= render 'layouts/search' %>
+              <li>
+              <%= link_to admin_customers_path,class: 'm-4 nav-link text-dark' do %>
+                会員一覧
+              <% end %>
+              </li>
+              <li>
+                <%= link_to admin_coordinates_path,class: 'm-4 nav-link text-dark' do %>
+                  コーディネート一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_tags_path,class: 'm-4 nav-link text-dark' do %>
+                  タグ一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_admin_session_path, method: :delete,class: 'm-4 nav-link text-dark' do %>
+                  ログアウト
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_coordinates_rank_path,class: 'm-4 nav-link text-dark' do %>
+                  ランキング一覧
+                <% end %>
+              </li>
+            </ul>
+          </div>
+
+          <% elsif customer_signed_in? %>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto list-unstyled">
+
+              <%= render 'layouts/search' %>
+              <li>
+              <%= link_to customers_path,class: 'm-4 nav-link text-dark' do %>
+                マイページ
+              <% end %>
+              </li>
+              <li>
+                <%= link_to coordinates_path,class: 'm-4 nav-link text-dark' do %>
+                  コーディネート一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to coordinate_path(current_customer.id),class: 'm-4 nav-link text-dark' do %>
+                  コメント
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_customer_session_path, method: :delete,class: 'm-4 nav-link text-dark' do %>
+                  ログアウト
+                <% end %>
+              </li>
+            </ul>
+          </div>
+
+          <% else %>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto list-unstyled">
+              <li>
+              <%= link_to about_path,class: 'm-4 nav-link text-light bg-dark' do %>
+                About
+              <% end %>
+              </li>
+              <li>
+                <%= link_to coordinates_path,class: 'm-4 nav-link text-light bg-dark' do %>
+                  Coordinates
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_customer_registration_path,class: 'm-4 nav-link text-light bg-dark' do %>
+                  Sign up
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_customer_session_path,class: 'm-4 nav-link text-light bg-dark' do %>
+                  Log in
+                <% end %>
+              </li>
+            </ul>
+          </div>
+          <% end %>
+        </div>
+      </nav>
     </header>
 
-    <%= yield %>
+    <main>
+       <%= yield %>
+    </main>
+
+    <footer>
+      <div class="w-100 mt-5 mb-5" style="background-color: #F3F1EA; height: 70px"></div>
+      <div class="container small my-5 pt-4">
+        <div class="row justify-content-center ">
+          <div class="col-md-2">
+            <%#= image_tag "Nagano Cake-logos.png", width: "60%", height: "80px" %>
+          </div>
+          <div class="col-md-2">
+            <p>配送・支払い方法</p>
+            <p>ご利用ガイド</p>
+            <p>お問い合わせ</p>
+          </div>
+          <div class="col-md-2">
+            <p>よくあるご質問</p>
+            <p>プライバシーポリシー</p>
+            <p>特定商取引法に基づく表記</p>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-4" style="font-size: 5px;">
+          ©2023  Windowshopping
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>

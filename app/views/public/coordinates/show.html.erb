@@ -1,34 +1,42 @@
-<h1>Public::Coordinates#show</h1>
-<p>Find me in app/views/public/coordinates/show.html.erb</p>
-<h2>コーディネート詳細</h2>
+<!--<p>Find me in app/views/public/coordinates/show.html.erb</p>-->
+<div class="container">
+<h1 class="m-4 col-3" style="font-size: 25px; background-color: ghostwhite;">Coordinate detail</h1>
+  <div class="row ml-auto">
+    <div class="col-4 offset-md-1">
+      <div><%= image_tag @coordinate.get_coordinate_image(400,400) %></div>
+    </div>
+    <div class="col-6 offset-md-1">
+      <div>
+        <h3 class="mt-3 ml-3" style="font-size: 20px;">total price</h3>
+        <h4 class="ml-3" style="font-size: 18px;">￥<%= @coordinate.total_price %></h4>
+      </div>
+      <div>
+        <h3 class="mt-3 ml-3" style="font-size: 20px;">tag name</h3>
+        <h4 class="ml-3" style="font-size: 18px;"><%= @coordinate.tag.tag_name %></h4>
+      </div>
+      <div>
+        <h3 class="mt-3 ml-3" style="font-size: 20px;">description</h3>
+        <h4 class="ml-3" style="font-size: 18px;"><%= @coordinate.coordinates_description %></h4>
+      </div>
+      <div>
+        <h3 class="mt-3 ml-3" style="font-size: 20px;">favorites</h3>
+        <h4 class="ml-3" style="font-size: 18px;">♡<%= @coordinate.favorites.count %></h>
+      </div>
+      <div>
+        <h3 class="mt-3 ml-3" style="font-size: 20px;">comments</h3>
+        <h4 class="ml-3" style="font-size: 18px;"><%= @coordinate.comments.count %></h4>
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= image_tag @coordinate.get_coordinate_image(100,100) %></th>
-      <th>コーディネート合計</th>
-      <th>タグ名</th>
-      <th>コーディネート説明</th>
-      <th>いいね数</th>
-      <th>コメント数</th>
-    </tr>
-    <tr>
-      <td></td>
-      <td><%= @coordinate.total_price %></td>
-      <td><%= @coordinate.tag.tag_name %></td>
-      <td><%= @coordinate.coordinates_description %></td>
-      <td><%= @coordinate.favorites.count %></td>
-      <td>コメント数入る</td>
-    </tr>
-  </thead>
-</table>
+<div class="container">
+  <h2 style="font-size: 22px;">Comments</h2>
 
-<!--コメントテンプレート-->
-<%= render "public/comments/index", coordinate: @coordinate %>
-
-<!--コメント投稿フォームテンプレート-->
-<%= render "public/comments/form", coordinate: @coordinate, comment: @comment %>
-
-<div>
-  このコーディネートに対するコメント一覧は<%#= link_to "こちら", coordinate_comments_path(coordinate_id) %>
+  <!--コメントテンプレート collection使用するとeach文使わなくてok(動作も早くなる)-->
+  <ul>
+    <%= render partial: "public/comments/index", collection: @coordinate.comments, as: :comment %>
+  </ul>
+  <!--コメント投稿フォームテンプレート-->
+  <%= render "public/comments/form", coordinate: @coordinate, comment: @comment %>
 </div>

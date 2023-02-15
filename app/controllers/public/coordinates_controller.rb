@@ -1,5 +1,5 @@
 class Public::CoordinatesController < ApplicationController
-  before_action :authenticate_customer!,except: [:index, :show]
+  before_action :authenticate_customer!,except: [:index]
 
   def index
     @coordinates = Coordinate.all

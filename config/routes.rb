@@ -1,23 +1,21 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'coordinates/new'
-    get 'coordinates/index'
-    get 'coordinates/edit'
-  end
+  # namespace :admin do
+  #   get 'coordinates/new'
+  #   get 'coordinates/index'
+  #   get 'coordinates/edit'
+  # end
   # 会員側のルーティング設定
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'
-    #resources :coordinates, only: [:index, :show] この位置においていた
     resource :customers, only: [:edit, :update]
     patch '/customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-    get 'customers/confirm' => 'customers#confirm'
+    get 'customers/confirm' => 'customers#confirm' #いる？
     get 'customers' => 'customers#show'
     resources :coordinates, only: [:index, :show] do
-      resources :comments, only: [:index, :destroy, :create] #update削除する
+      resources :comments, only: [:destroy, :create] #update,index削除した
       resource :favorites, only: [:create, :destroy]
     end
-
   end
 
   devise_scope :customer do
@@ -32,6 +30,7 @@ Rails.application.routes.draw do
     get 'coordinates/rank/:year/:month' => 'coordinates#monthly_rank'
     resources :tags, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :edit, :update]
+    get 'search' => 'coordinates#search'
     #coordinate_tags
   end
 

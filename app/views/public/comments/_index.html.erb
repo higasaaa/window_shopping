@@ -1,21 +1,15 @@
-<h1>Public::Comments#index</h1>
-<p>Find me in app/views/public/comments/index.html.erb</p>
+<li class="row">
+  <div class="p-3"><%= image_tag comment.coordinate.get_coordinate_image(80,80) %></div>
+  <div class="p-3">
+    <div><%= comment.customer.nickname %></div>
+    <div><%= comment.created_at.strftime('%Y/%m/%d') %></div>
+    <p><%= comment.content %></p>
+    <div>
+      <% if comment.customer == current_customer %>
+        <%= link_to "Destroy", coordinate_comment_path(comment.coordinate, comment),method: :delete, remote: true %>
+      <% end %>
+    </div>
+  </div>
+</li>
 
-<h2>コメント一覧</h2>
-<table>
-  <tbody>
-    <% coordinate.comments.each do |comment| %>
-    <tr>
-      <td><%= image_tag comment.coordinate.get_coordinate_image(100,100) %></td>
-      <td><%= comment.customer.nickname %></td>
-      <td><%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.content %></td>
-      <td>
-        <% if comment.customer == current_customer %>
-          <%= link_to "Destroy", coordinate_comment_path(comment.coordinate, comment),method: :delete, remote: true %>
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
 

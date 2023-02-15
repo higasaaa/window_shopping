@@ -1,26 +1,29 @@
-<h1>Admin::Tags#index</h1>
-<p>Find me in app/views/admin/tags/index.html.erb</p>
-<h2>タグ一覧・追加</h2>
-
-<%= form_with model: @tag, url:admin_tags_path, local:true do |t| %>
-  <%= t.text_field :tag_name %>
-  <%= t.submit '新規登録' %>
-<% end %>
-
-<!--タグ一覧表示-->
-<table>
-  <thead>
-    <tr>
-      <th>タグ</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <% @tags.each do |tag| %>
-      <td><%= tag.tag_name %></td>
-      <td><%= link_to "編集する", edit_admin_tag_path(tag.id) %></td>
-    </tr>
-      <% end %>
-  </tbody>
-</table>
+<!--<p>Find me in app/views/admin/tags/index.html.erb</p>-->
+<body>
+  <h5 class="alert-secondary d-inline-block font-weight-bold mb-5 ml-5 px-3 mt-4" style="background-color: ghostwhite">Tags,lists・post</h5>
+  <div class="container">
+  <%= form_with model: @tag, url:admin_tags_path, local:true do |f| %>
+    <div class="row">
+      <%= f.label :tag_name, class: "mr-3" %>
+      <%= f.text_field :tag_name, class: "w-20" %>
+      <%= f.submit "new post", class: "text-muted bg-warning ml-3", style: "background-color: #F3F1EA" %>
+    </div>
+  <% end %>
+    <table class="table mt-5 col-md-4">
+      <thead style="background-color: ghostwhite">
+        <tr>
+          <th>Tags</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @tags.each do |tag| %>
+          <td><%= tag.tag_name %></td>
+          <td><%= link_to "Edit", edit_admin_tag_path(tag.id), class: "text-dark bg-light", style: "background-color: #F3F1EA" %></td>
+        </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
+</body>
