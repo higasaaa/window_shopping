@@ -1,9 +1,35 @@
-<% if @year %>
-  <%= @year %>年 <%= @month %>月
-<% end %>
 
-<% @all_ranks.each do |coordinate| %>
-  <%= image_tag coordinate.get_coordinate_image(100,100) %>
-  <%= coordinate.cnt %>
-  <%= coordinate.tag_name %>
-<% end %>
+  
+  <div>
+    <% if @year %>
+      <%= @year %>年 <%= @month %>月
+    <% end %>
+  </div>
+ 
+ <!--いいね順コーデランキング-->
+<div class="container">
+  <h1 style="font-size: 25px;">Favorites All Ranking</h1>
+  <% @all_ranks.each.with_index(1) do |coordinate, i| %>
+  No.<%= i %>
+  <ul>
+    <li class="row">
+      <div class="p-3"><%= image_tag coordinate.get_coordinate_image(100,100) %></div>
+      <div class="p-3">
+        <div>
+          tag :<%= coordinate.tag_name %>
+        </div>
+        <div>
+          favorits♡ :<%= coordinate.cnt %>
+        </div>
+        <div>
+          comments :<%= coordinate.comments.count %>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <% end %>
+</div>
+
+
+
+

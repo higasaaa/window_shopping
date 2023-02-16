@@ -17,12 +17,13 @@
     <td><%= customer.email %></td>
     <td>
       <% if customer.is_deleted %>
-        <div>退会</div>
+        <div><%= link_to "退会", edit_admin_customer_path(customer.id), class: "text-danger" %></div>
       <% else %>
-        <div>有効</div>
+        <div><%= link_to "有効", edit_admin_customer_path(customer.id), class: "text-success" %></div>
       <% end %>
     </td>
   </tr>
   <% end %>
   </tbody>
 </table>
+

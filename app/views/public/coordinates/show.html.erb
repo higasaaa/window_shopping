@@ -3,28 +3,31 @@
 <h1 class="m-4 col-3" style="font-size: 25px; background-color: ghostwhite;">Coordinate detail</h1>
   <div class="row ml-auto">
     <div class="col-4 offset-md-1">
-      <div><%= image_tag @coordinate.get_coordinate_image(400,400) %></div>
+      <div><%= image_tag @coordinate.get_coordinate_image(300,300) %></div>
     </div>
     <div class="col-6 offset-md-1">
-      <div>
-        <h3 class="mt-3 ml-3" style="font-size: 20px;">total price</h3>
-        <h4 class="ml-3" style="font-size: 18px;">￥<%= @coordinate.total_price %></h4>
+
+      <div class="mt-3 ml-3" style="font-size: 20px;">
+        total price :
+       ￥<%= @coordinate.total_price %>
       </div>
-      <div>
-        <h3 class="mt-3 ml-3" style="font-size: 20px;">tag name</h3>
-        <h4 class="ml-3" style="font-size: 18px;"><%= @coordinate.tag.tag_name %></h4>
+     
+      <div class="mt-3 ml-3" style="font-size: 20px;">
+        tag name :
+        <%= @coordinate.tag.tag_name %>
       </div>
-      <div>
-        <h3 class="mt-3 ml-3" style="font-size: 20px;">description</h3>
-        <h4 class="ml-3" style="font-size: 18px;"><%= @coordinate.coordinates_description %></h4>
+      
+      <div class="mt-3 ml-3" style="font-size: 20px;">
+        favorites :
+        ♡<%= @coordinate.favorites.count %>
       </div>
-      <div>
-        <h3 class="mt-3 ml-3" style="font-size: 20px;">favorites</h3>
-        <h4 class="ml-3" style="font-size: 18px;">♡<%= @coordinate.favorites.count %></h>
+      <div class="mt-3 ml-3" style="font-size: 20px;">
+        comments :
+        <%= @coordinate.comments.count %>
       </div>
-      <div>
-        <h3 class="mt-3 ml-3" style="font-size: 20px;">comments</h3>
-        <h4 class="ml-3" style="font-size: 18px;"><%= @coordinate.comments.count %></h4>
+      <div class="mt-3 ml-3" style="font-size: 20px;">
+        description :
+        <p><%= @coordinate.coordinates_description %></p>
       </div>
     </div>
   </div>

@@ -20,15 +20,20 @@
           <td><%= @customer.birthdate %></td>
         </tr>
         <tr>
+          <td>Gender</td>
+          <td><%= @customer.sex %></td>
+        </tr>
+        <tr>
           <td>Livearea</td>
           <td><%= @customer.live_area %></td>
         </tr>
       </tbody>
     </table>
+    <div class="text-right">
+      <%= link_to "Edit", edit_customers_path, class: "text-secondary" %>
     </div>
-     <h5>
-      <%= link_to "Edit", edit_customers_path, class: "text-dark bg-warning" %>
-    </h5>
+    </div>
+
   <!--</div>-->
 </div>
 

@@ -1,6 +1,10 @@
+<%= form_with model:[coordinate, comment] do |f| %>
 <div>
-  <%= form_with model:[coordinate, comment] do |f| %>
-    <%= f.text_area :content, placeholder:"コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
+    <%= f.text_area :content, placeholder:"comment here", class: "form-control w-25" %>
 </div>
+<div>
+    <%= f.submit "post comment", class: "btn btn-outline-secondary btn-sm mt-2 ml-auto" %>
+</div>
+    
+  <% end %>
+

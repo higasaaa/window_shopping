@@ -1,18 +1,23 @@
-<h1>Public::Coordinates#index</h1>
-<p>コーディネート一覧Find me in app/views/public/coordinates/index.html.erb</p>
-<div>
-  <% @coordinates.each do |coordinate| %>
-    <%= link_to coordinate_path(coordinate.id) do %>
-      <%= image_tag coordinate.get_coordinate_image(150,150) %>
-    <% end %>
-    <%= coordinate.tag.tag_name %>
-    <%= coordinate.total_price %>
-
-    <!--いいね機能-->
-    <div id="favorite_buttons_<%= coordinate.id %>">
-      <%= render "public/favorites/favorite", coordinate: coordinate %>
+<div class="container">
+  <div class="m-4">
+    <h1 style="font-size: 25px;">Coordinate Lists</h1>  
+  </div>
+  
+  <div class="d-flex flex-wrap">
+    <% @coordinates.each do |coordinate| %>
+    <div class="w-25">
+      <div>
+        <%= link_to coordinate_path(coordinate.id) do %>
+          <%= image_tag coordinate.get_coordinate_image(150,150) %>
+        <% end %>
+      </div>
+      <div><%= coordinate.tag.tag_name %></div>
+      <div>￥<%= coordinate.total_price.to_s(:delimited) %></div>
+      <!--いいね機能-->
+      <div id="favorite_buttons_<%= coordinate.id %>">
+        <%= render "public/favorites/favorite", coordinate: coordinate %>
+      </div>
     </div>
-
-
-  <% end %>
+    <% end %>
+  </div>
 </div>

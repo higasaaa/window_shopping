@@ -25,7 +25,8 @@ class Admin::CoordinatesController < ApplicationController
       flash[:notice] = "コーディネートの更新は成功しました。"
       redirect_to admin_coordinates_path #admin/index
   end
-# daylyランキング
+  
+# 全体のランキング?
   def rank
     @all_ranks = Coordinate
       .joins(:tag, :favorites)

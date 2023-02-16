@@ -1,42 +1,41 @@
-<section class="container">
+<div class="container">
   <div class="row">
     <div class="col-md-2"></div>
       <div class="col-md-10 col-sm-12">
-      <h4 class="d-inline-block px-3,mb-4 mt-4" style="background-color: ghostwhite">ログイン</h4><br>
-      <h6 class="d-inline-block font-weight-bold mx-3 px-3" style="background-color: ghostwhite">会員の方はこちらからログイン</h6>
+      <h1 class="d-inline-block px-3,mb-4 mt-4" style="font-size: 25px; background-color: ghostwhite">Log in</h1><br>
+      <p class="d-inline-block font-weight-bold mx-3 px-3" style="background-color: ghostwhite">会員の方はこちらからログイン</p>
       <%= form_with model: @customer, url: customer_session_path do |f| %>
         <div class="row my-3">
           <div class="col-md-4 col-sm-6">
             <div class="field mb-2">
-              <%= f.label :メールアドレス, class: 'ml-5 pl-5' %>
+              <%= f.label :Email, class: 'ml-5 pl-5' %>
             </div>
             <div class="field">
-              <%= f.label :パスワード, class: 'ml-5 pl-5' %>
+              <%= f.label :Password, class: 'ml-5 pl-5' %>
             </div>
           </div>
 
           <div class="col-md-8 col-sm-6">
             <div class="field mb-2">
-              <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス", class: "w-50" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "Email", class: "w-50" %>
             </div>
             <div class="field mb-4">
-              <%= f.password_field :password, autocomplete: "パスワード", class: "w-50" %>
+              <%= f.password_field :password, autocomplete: "Password", class: "w-50" %>
             </div>
             <div class="actions mb-3">
-              <%= f.submit "ログイン", class: 'btn btn-sm px-4', style:"background-color: #F3F1EA" %>
+              <%= f.submit "Log in", class: 'btn btn-sm px-4', style:"background-color: #F3F1EA" %>
             </div>
           </div>
         </div>
-
       <% end %>
 
-      <h6 class="d-inline-block font-weight-bold mx-3 px-3" style="background-color: ghostwhite">会員がお済みでない方</h6>
+      <p class="d-inline-block font-weight-bold mx-3 px-3" style="background-color: ghostwhite">会員がお済みでない方</p>
       <div class="pl-5 ml-5">
         <%= link_to 'こちら', new_customer_registration_path %>から新規登録を行ってください。
       </div>
     </div>
   </div>
-</section>
+</div>
 
 
 
