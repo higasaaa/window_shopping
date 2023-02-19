@@ -60,11 +60,6 @@ ActiveRecord::Schema.define(version: 2023_02_08_103528) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "coordinate_tags", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "coordinates", force: :cascade do |t|
     t.integer "tag_id"
     t.integer "favorite_id"

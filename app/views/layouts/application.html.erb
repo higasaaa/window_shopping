@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <header style="width: 100%; background-color: #F3F1EA">
+    <header class="border-danger" style="border-bottom: 3px solid; width: 100%;">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <a class="navbar-brand" href="/"><span>Window shopping</span></a>
@@ -29,7 +29,7 @@
 
               <%#= render 'layouts/search' %>
               <li>
-              <%= link_to admin_customers_path,class: 'm-4 nav-link text-dark' do %>
+              <%= link_to admin_path,class: 'm-4 nav-link text-dark' do %>
                 Customers
               <% end %>
               </li>
@@ -62,7 +62,7 @@
 
               <%#= render 'layouts/search' %>
               <li>
-              <%= link_to customers_path,class: 'm-4 nav-link text-dark' do %>
+              <%= link_to customers_path, class: 'm-4 nav-link text-dark' do %>
                 Mypage
               <% end %>
               </li>
@@ -118,8 +118,9 @@
        <%= yield %>
     </main>
 
-    <footer>
-      <div class="w-100 mt-5 mb-5" style="background-color: #F3F1EA; height: 70px"></div>
+    <footer class="border-danger" style="border-top: 10px solid;">
+      <!--<div class="border" style="border-top: 10px solid; color: #ffee32;"></div>-->
+      <div class="w-100 mt-5 mb-5"></div> <!--style="background-color: #F2F2F2; height: 70px"-->
       <div class="container small my-5 pt-4">
         <div class="row justify-content-center ">
           <div class="col-md-2">

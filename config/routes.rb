@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'
-    resource :customers, only: [:edit, :update]
+    resource :customers, only: [:edit, :update, :show] #respurcesにする
     patch '/customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     get 'customers/confirm' => 'customers#confirm' #いる？
-    get 'customers' => 'customers#show'
+    # get 'customers' => 'customers#show'
     resources :coordinates, only: [:index, :show] do
       resources :comments, only: [:destroy, :create] #update,index削除した
       resource :favorites, only: [:create, :destroy]
@@ -24,12 +24,12 @@ Rails.application.routes.draw do
 
    # 管理者側のルーティング設定
    namespace :admin do
-    get '/' => 'homes#top'
+    get '/' => 'customers#index'
     resources :coordinates, only: [:new, :create, :index, :edit, :update]
     get 'coordinates/rank' => 'coordinates#rank'
     get 'coordinates/rank/:year/:month' => 'coordinates#monthly_rank'
     resources :tags, only: [:index, :create, :edit, :update]
-    resources :customers, only: [:index, :edit, :update]
+    resources :customers, only: [:edit, :update]
     get 'search' => 'coordinates#search'
     #coordinate_tags
   end

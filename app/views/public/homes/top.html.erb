@@ -1,7 +1,27 @@
+  <!--top画像-->
+<div class="img-fluid text-center info-text-box"></div>
 
-  <div class="img-fluid text-center info-text-box"></div>
+<div class="row">
+  <div class="col-lg-10 offset-lg-1 row">
+      <% @coordinates.each do |coordinate| %>
+      <div class="col-lg-3">
+        <div>
+          <%= link_to coordinate_path(coordinate.id) do %>
+            <%= image_tag coordinate.get_coordinate_image(150,150) %>
+          <% end %>
+        </div>
+        <div><%= coordinate.tag.tag_name %></div>
+        <div>￥<%= coordinate.total_price.to_s(:delimited) %></div>
+      </div>
+      <% end %>
+  </div>
+</div>
 
-<!--top画像-->
+<!--<div class="d-flex flex-wrap">-->
+  
+<!--  <div class="w-25">-->
+    
+<!--  </div>-->
+<!--</div>-->
 
-
-<%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, method: :post %>
+<%#= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, method: :post %>
