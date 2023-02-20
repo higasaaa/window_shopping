@@ -1,8 +1,8 @@
 class Public::CoordinatesController < ApplicationController
-  before_action :authenticate_customer!,except: [:index]
+  before_action :authenticate_customer!, except: [:index]
 
   def index
-    @coordinates = Coordinate.all
+    @coordinates = Coordinate.search(params[:keyword])
   end
 
   def show
@@ -10,10 +10,9 @@ class Public::CoordinatesController < ApplicationController
     @comment = Comment.new
   end
 
+  # private
 
-  private
-
-  def coordinate_params
-    params.require(:coordinate).permit(:image, :coordinates_description, :total_price, :tag_id)
-  end
+  # def coordinate_params
+  #   params.require(:coordinate).permit(:image, :coordinates_description, :total_price, :tag_id)
+  # end
 end

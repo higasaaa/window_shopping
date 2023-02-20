@@ -1,13 +1,22 @@
 @import '~bootstrap/scss/bootstrap';
-.info-text-box {
+.top-image {
     height: 500px;
     width: 100vw;
-    background-image: url(../images/topimage.png);
+
+    img {
+      border-color: #FFD700;
+      border-width: 4px;
+      border-style: solid;
+    }
+    //background-image: url(../images/topimage.png);
+    //border-color: #C0C0C0;
+    //border-width: 3px;
+    //border-style: solid;
     // background-color: #f2f2f2;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    position: relative;
+    //background-size: contain;
+    //ackground-repeat: no-repeat;
+    //background-position: center center;
+    //position: relative;
 }
 
 
@@ -17,7 +26,7 @@
 
 // ハンバーガーの色をRGBAで変更
 .navbar-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 69, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .header {

@@ -9,11 +9,17 @@ class Coordinate < ApplicationRecord
     favorites.exists?(customer_id: customer.id)
   end
 
+# 検索
+  def self.search(keyword)
+    return all if keyword.blank? #return ここで（all）処理を終える
+    joins(:tag).where("tags.tag_name LIKE ?", "%#{keyword}%") #joinsはモデルと結合する
+  end
+
   def get_coordinate_image(width, height)
     unless image.attached?
-      file_path = Rails.root.join('app/assets/images/fashion_torso_22957-300x300.jpg')
+      file_path = Rails.root.join('app/javascript/images/fashion_torso_22957-300x300.jpg')
       image.attach(io:File.open(file_path),filename: 'default-image.jpg', content_type:'image/jpeg')
     end
-      image.variant(resize_to_fill: [width, height]).processed
+    image.variant(resize_to_fill: [width, height]).processed
   end
 end

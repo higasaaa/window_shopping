@@ -2,21 +2,21 @@
 <div class="container">
 <h1 class="m-4 col-3" style="font-size: 25px; background-color: ghostwhite;">Coordinate detail</h1>
   <div class="row ml-auto">
-    <div class="col-4 offset-md-1">
+    <div class="col-3 offset-2">
       <div><%= image_tag @coordinate.get_coordinate_image(300,300) %></div>
     </div>
-    <div class="col-6 offset-md-1">
+    <div class="col-6 offset-1">
 
       <div class="mt-3 ml-3" style="font-size: 20px;">
         total price :
        ￥<%= @coordinate.total_price %>
       </div>
-     
+
       <div class="mt-3 ml-3" style="font-size: 20px;">
         tag name :
         <%= @coordinate.tag.tag_name %>
       </div>
-      
+
       <div class="mt-3 ml-3" style="font-size: 20px;">
         favorites :
         ♡<%= @coordinate.favorites.count %>

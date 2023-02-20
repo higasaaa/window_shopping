@@ -1,8 +1,17 @@
 <div class="container">
   <div class="m-4">
-    <h1 style="font-size: 25px;">Coordinate Lists</h1>  
+    <h1 style="font-size: 25px;">Coordinate Lists</h1>
   </div>
-  
+
+<!--検索機能-->
+  <%= form_with url: coordinates_path, method: :get, local: true do |f| %>
+   <div class="input-group w-25">
+      <%= f.text_field :keyword, value: params[:keyword], class: "form-control" %>
+      <%= f.submit "検索", class: "btn btn-outline-secondary" %>
+    <% end %>
+  </div>
+
+<!--コーディネート一覧-->
   <div class="d-flex flex-wrap">
     <% @coordinates.each do |coordinate| %>
     <div class="w-25">
@@ -13,6 +22,7 @@
       </div>
       <div><%= coordinate.tag.tag_name %></div>
       <div>￥<%= coordinate.total_price.to_s(:delimited) %></div>
+
       <!--いいね機能-->
       <div id="favorite_buttons_<%= coordinate.id %>">
         <%= render "public/favorites/favorite", coordinate: coordinate %>

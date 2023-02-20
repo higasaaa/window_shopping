@@ -8,5 +8,4 @@ class Public::SearchesController < ApplicationController
       @tags = Tag.looks(params[:search], params[:word])
     end
   end
-
 end

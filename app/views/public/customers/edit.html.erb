@@ -12,26 +12,25 @@
       <div><%= f.label :"Live area" %></div>
     </div>
     <div class="col-md-3">
-      <div class="field mb-2"><%= f.text_field :nickname, autofocus: true %></div>
-      <div class="field mb-2"><%= f.email_field :email, autofocus: true %></div>
+      <div class="field mb-2"><%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "w-auto"%></div>
+      <div class="field mb-2"><%= f.email_field :email, autofocus: true,autocomplete: "email" %></div>
       <div class="field mb-2"><%= f.date_select :birthdate, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %></div>
       <div class="field mb-2"><%= f.select :sex, [["",""], ["女性","女性"], ["男性","男性"]], {} %></div>
       <div class="field mb-2"><%= f.text_field :live_area %></div>
-      <div class="actions mb-2"><%= f.submit "Up date" %></div>
-      <div class="mb-2"><%= link_to "退会する",  customers_confirm_path %></div>
+      <div class="actions mb-2"><%= f.submit "Up date", class: "btn btn-outline-warning btn-sm" %></div>
+      <div class="mb-2"><%= link_to "退会する",  customers_confirm_path, class: "text-danger" %></div>
     </div>
   </div>
   <% end %>
 </div>
-  
 
-  
-  
 
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
