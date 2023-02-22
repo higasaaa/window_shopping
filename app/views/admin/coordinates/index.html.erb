@@ -1,26 +1,34 @@
-<h1 style="font-size: 25px;">Coordinates</h1>
-<div><%= link_to "New post", new_admin_coordinate_path %></div>
-<table class="table table-hover ml-auto mr-auto w-75">
-  <thead class="border-bottom border-top border-secondary" style="background-color: ghostwhite">
-    <tr>
-    <th></th>
-    <th>coordinate ID</th>
-    <th>tag name</th>
-    <th>total price</th>
-    <th>favorites</th>
-    <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @coordinates.each do |coordinate| %>
-    <tr>
-      <td><%= image_tag coordinate.get_coordinate_image(80,80) %></td>
-      <td><%= coordinate.id %></td>
-      <td><%= coordinate.tag.tag_name %></td>
-      <td><%= coordinate.total_price %></td>
-      <td><%= coordinate.favorites.count %></td> <!--まだない-->
-      <td><%= link_to "編集する", edit_admin_coordinate_path(coordinate.id) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<!--flash message-->
+<div class="text-white bg-danger">
+  <%= flash[:notice] %>
+</div>
+<div class="container">
+  <h1 class="d-inline-block m-4" style="font-size: 25px; background-color: #f2f2f2;">Coordinates</h1>
+  <div>
+    <%= link_to "New post coordinate", new_admin_coordinate_path, class: "btn btn-warning btn-sm text-light mb-4 ml-4"%>
+  </div>
+  <table class="table table-hover ml-auto mr-auto w-75">
+    <thead class="border-bottom border-top border-secondary" style="background-color: #f2f2f2;">
+      <tr>
+      <th></th>
+      <th>coordinate ID</th>
+      <th>tag name</th>
+      <th>total price</th>
+      <th>favorites</th>
+      <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @coordinates.each do |coordinate| %>
+      <tr>
+        <td><%= image_tag coordinate.get_coordinate_image(80,80) %></td>
+        <td><%= coordinate.id %></td>
+        <td><%= coordinate.tag.tag_name %></td>
+        <td><%= coordinate.total_price %></td>
+        <td><%= coordinate.favorites.count %></td> <!--まだない-->
+        <td><%= link_to "Edit", edit_admin_coordinate_path(coordinate.id), class: "btn btn-outline-secondary text-dark" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

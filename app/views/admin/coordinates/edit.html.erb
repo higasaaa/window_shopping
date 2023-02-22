@@ -1,7 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>Editing coordinate</h2>
+      <h1 class="d-inline-block my-4" style="font-size: 25px; background-color: #f2f2f2;">Editing coordinate</h1>
+      <!-- errormassage-->
+      <% if @coordinate.errors.any? %>
+      <div>
+        <ul style="color: red">
+          <% @coordinate.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
       <%= form_with model: @coordinate, url:admin_coordinate_path(@coordinate.id), method: :patch do |f| %>
         <div class="form-group">
           <%= f.label :tag_name %>

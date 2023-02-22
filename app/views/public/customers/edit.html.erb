@@ -1,6 +1,6 @@
 
-<!--<p>Find me in app/views/public/customers/edit.html.erb</p>-->
 <h1 class="col-md-3 offset-3 mt-4" style="font-size: 25px;">Customer edit</h1>
+
 <div class="container">
   <%= form_with model: @customer,url: customers_path(@customer), method: :patch do |f| %>
   <div class="row">
@@ -17,8 +17,10 @@
       <div class="field mb-2"><%= f.date_select :birthdate, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %></div>
       <div class="field mb-2"><%= f.select :sex, [["",""], ["女性","女性"], ["男性","男性"]], {} %></div>
       <div class="field mb-2"><%= f.text_field :live_area %></div>
-      <div class="actions mb-2"><%= f.submit "Up date", class: "btn btn-outline-warning btn-sm" %></div>
-      <div class="mb-2"><%= link_to "退会する",  customers_confirm_path, class: "text-danger" %></div>
+      <div class="my-3">
+        <%= f.submit "Up date", class: "btn btn-warning btn-sm text-light" %>
+        <%= link_to "※Withdraw",  customers_confirm_path, class: "btn btn-danger btn-sm mx-4" %>
+      </div>
     </div>
   </div>
   <% end %>

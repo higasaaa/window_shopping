@@ -1,13 +1,12 @@
 <div class="container">
   <div class="m-4">
-    <h1 style="font-size: 25px;">Coordinate Lists</h1>
+    <h1 style="font-size: 25px; background-color: #f2f2f2">Coordinate Lists</h1>
   </div>
-
 <!--検索機能-->
   <%= form_with url: coordinates_path, method: :get, local: true do |f| %>
    <div class="input-group w-25">
       <%= f.text_field :keyword, value: params[:keyword], class: "form-control" %>
-      <%= f.submit "検索", class: "btn btn-outline-secondary" %>
+      <%= f.submit "search", class: "btn btn-outline-secondary btn-sm mx-3" %>
     <% end %>
   </div>
 

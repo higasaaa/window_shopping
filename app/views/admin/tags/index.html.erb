@@ -1,16 +1,31 @@
-<!--<p>Find me in app/views/admin/tags/index.html.erb</p>-->
-<body>
-  <h5 class="alert-secondary d-inline-block font-weight-bold mb-5 ml-5 px-3 mt-4" style="background-color: ghostwhite">Tags,lists・post</h5>
-  <div class="container">
-  <%= form_with model: @tag, url:admin_tags_path, local:true do |f| %>
-    <div class="row">
+<!--flash message-->
+<div class="text-white bg-danger">
+  <%= flash[:notice] %>
+</div>
+
+<div class="container">
+  <h1 class="d-inline-block m-4" style="font-size: 25px; background-color: #f2f2f2;">Tags,lists・post</h1>
+  <!-- errormassage-->
+  <% if @tag.errors.any? %>
+  <div>
+    <ul style="color: red">
+      <% @tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="ml-5">
+    <%= form_with model: @tag, url:admin_tags_path, local:true do |f| %>
+    <div class="input-group mt-3">
       <%= f.label :tag_name, class: "mr-3" %>
       <%= f.text_field :tag_name, class: "w-20" %>
-      <%= f.submit "new post", class: "text-muted bg-warning ml-3", style: "background-color: #F3F1EA" %>
+      <%= f.submit "New post", class: "text-dark bg-warning ml-3", style: "background-color: #F3F1EA" %>
     </div>
-  <% end %>
+    <% end %>
     <table class="table mt-5 col-md-4">
-      <thead style="background-color: ghostwhite">
+      <thead style="background-color: #f2f2f2;">
         <tr>
           <th>Tags</th>
           <th></th>
@@ -20,10 +35,11 @@
         <tr>
           <% @tags.each do |tag| %>
           <td><%= tag.tag_name %></td>
-          <td><%= link_to "Edit", edit_admin_tag_path(tag.id), class: "text-dark bg-light", style: "background-color: #F3F1EA" %></td>
+          <td><%= link_to "Edit", edit_admin_tag_path(tag.id), class: "btn btn-outline-secondary btn-sm text-dark", style: "background-color: #F3F1EA" %></td>
         </tr>
           <% end %>
       </tbody>
     </table>
   </div>
-</body>
+</div>
+

@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     get 'coordinates/rank/:year/:month' => 'coordinates#monthly_rank'
     resources :tags, only: [:index, :create, :edit, :update]
     resources :customers, only: [:edit, :update]
-    get 'search' => 'coordinates#search'
+    # get 'search' => 'coordinates#search'
     #coordinate_tags
   end
 

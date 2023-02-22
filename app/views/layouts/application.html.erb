@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>WindowShopping</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <!--css適応させるなら追記する-->
@@ -18,7 +17,7 @@
     <header class="border-danger" style="border-bottom: 3px solid; width: 100%;">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="/"><span>Window shopping</span></a>
+          <a class="navbar-brand text-dark" href="/"><span>Window shopping</span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -26,8 +25,6 @@
           <% if admin_signed_in? %>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto list-unstyled">
-
-              <%#= render 'layouts/search' %>
               <li>
               <%= link_to admin_path,class: 'm-4 nav-link text-dark' do %>
                 Customers
@@ -59,8 +56,6 @@
           <% elsif customer_signed_in? %>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto list-unstyled">
-
-              <%#= render 'layouts/search' %>
               <li>
               <%= link_to customers_path, class: 'm-4 nav-link text-dark' do %>
                 Mypage
@@ -71,11 +66,11 @@
                   Coordinatelists
                 <% end %>
               </li>
-              <li>
-                <%= link_to coordinate_path(current_customer.id),class: 'm-4 nav-link text-dark' do %>
-                  コメント
-                <% end %>
-              </li>
+              <!--<li>-->
+              <!--  <%#= link_to coordinate_path(current_customer.id),class: 'm-4 nav-link text-dark' do %>-->
+              <!--    コメント-->
+              <!--  <%# end %>-->
+              <!--</li>-->
               <li>
                 <%= link_to destroy_customer_session_path, method: :delete,class: 'm-4 nav-link text-dark' do %>
                   Logout
@@ -114,8 +109,8 @@
       </nav>
     </header>
 
-    <main>
-       <%= yield %>
+    <main style='min-height: 350px'>
+      <%= yield %>
     </main>
 
     <footer class="border-danger" style="border-top: 10px solid;">

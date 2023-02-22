@@ -1,9 +1,9 @@
     <% if customer_signed_in? && coordinate.favorited_by?(current_customer) %> <!--signed inしている、かつカレントカスタマーだった場合いいねを外せる-->
-      <%= link_to coordinate_favorites_path(coordinate), method: :delete, remote: true do %>
-      ♥<%= coordinate.favorites.count %>いいね
+      <%= link_to coordinate_favorites_path(coordinate), method: :delete, remote: true, class: "like-btn" do %>
+      ♥<%= coordinate.favorites.count %>
       <% end %>
     <% else %>
-      <%= link_to coordinate_favorites_path(coordinate), method: :post, remote: true do %>
-      ♡<%= coordinate.favorites.count %>いいね
+      <%= link_to coordinate_favorites_path(coordinate), method: :post, remote: true, class: "unlike-btn" do %>
+      ♥<%= coordinate.favorites.count %>
       <% end %>
     <% end %>

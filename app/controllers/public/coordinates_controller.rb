@@ -10,9 +10,4 @@ class Public::CoordinatesController < ApplicationController
     @comment = Comment.new
   end
 
-  # private
-
-  # def coordinate_params
-  #   params.require(:coordinate).permit(:image, :coordinates_description, :total_price, :tag_id)
-  # end
 end

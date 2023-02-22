@@ -1,22 +1,28 @@
-  <!--top画像-->
-<div class="img-fluid text-center top-image mt-4">
-  <%= image_tag "topimage.png", height: 500 %>
+<!--flashmessage-->
+<div class="text-white bg-danger">
+  <%= flash[:notice] %>
+  <%#= flash[:withdrawal] %>
 </div>
+<div class="container">
+  <!--top画像-->
+  <div class="row">
+    <div class="img-fluid text-center top-image mt-4">
+      <%= image_tag "topimage.png", height: 500 %>
+    </div>
+  </div>
 
-<div class="row">
-  <div class="col-10 offset-1 row">
-      <% @coordinates.each do |coordinate| %>
-      <div class="col-3">
-        <div>
-          <%= link_to coordinate_path(coordinate.id) do %>
-            <%= image_tag coordinate.get_coordinate_image(150,150), class: "border border-secondary my-4" %>
-          <% end %>
-        </div>
+  <div class="row">
+    <% @coordinates.each do |coordinate| %>
+    <div class="col-6 col-md-3">
+      <div class="text-center">
+        <%= link_to coordinate_path(coordinate.id) do %>
+          <%= image_tag coordinate.get_coordinate_image(150,150), class: "border-window my-4", style: "border-style: solid: 5px;" %>
+        <% end %>
       </div>
-      <% end %>
+    </div>
+    <% end %>
   </div>
 </div>
-
 <!--<div class="d-flex flex-wrap">-->
 
 <!--  <div class="w-25">-->

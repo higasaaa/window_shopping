@@ -1,13 +1,19 @@
 @import '~bootstrap/scss/bootstrap';
 .top-image {
-    height: 500px;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
 
     img {
       border-color: #FFD700;
       border-width: 4px;
       border-style: solid;
     }
+
+// .top-code-image {
+//   border-color: #FFD700;
+//   border-width: 5px;
+//   border-style: solid;
+// }
     //background-image: url(../images/topimage.png);
     //border-color: #C0C0C0;
     //border-width: 3px;
@@ -19,7 +25,21 @@
     //position: relative;
 }
 
+// topページcoordinateimage
+.border-window {
+  border: 5px solid #6c757d;
+}
+// いいねボタン
 
+.like-btn {
+  color: #DC143C;
+  font-size: 20px;
+}
+
+.unlike-btn {
+  color: #777777;
+  font-size: 20px;
+}
 // .navbar-toggler{
 //   background-color: #yello;
 // }
@@ -32,3 +52,14 @@
 .header {
   background-color: #f2f2f2;
 }
+
+// .navbar-brand {
+//   background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgba(46, 204, 113, 1) 50%);
+//   background-position: 0 0;
+//   background-size: 200% auto;
+//   transition: .3s;
+// }
+// .navbar-brand {
+//   background-position: -100% 0;
+//   color: #fff;
+// }

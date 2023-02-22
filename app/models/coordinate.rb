@@ -5,11 +5,14 @@ class Coordinate < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  validates :total_price, presence: true
+  validates :coordinates_description, presence: true, length: { maximum: 50 }
+  
   def favorited_by?(customer) #引数で渡されたユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べる
     favorites.exists?(customer_id: customer.id)
   end
 
-# 検索
+# 検索機能
   def self.search(keyword)
     return all if keyword.blank? #return ここで（all）処理を終える
     joins(:tag).where("tags.tag_name LIKE ?", "%#{keyword}%") #joinsはモデルと結合する

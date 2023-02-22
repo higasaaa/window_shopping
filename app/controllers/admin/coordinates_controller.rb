@@ -1,4 +1,5 @@
 class Admin::CoordinatesController < ApplicationController
+  before_action :authenticate_admin!
   def new
     @coordinate = Coordinate.new
   end
@@ -12,20 +13,25 @@ class Admin::CoordinatesController < ApplicationController
   end
 
   def create
-    # byebug
     @coordinate = Coordinate.new(coordinate_params)
-    @coordinate.save
-    redirect_to admin_coordinates_path #admin/index
+    if @coordinate.save
+      flash[:notice] = "コーディネートの新規投稿は成功しました。"
+      redirect_to admin_coordinates_path #admin/index
+    else
+      render:new
+    end
   end
 
   def update
-    # byebug
     @coordinate = Coordinate.find(params[:id])
-    @coordinate.update(coordinate_params)
+    if @coordinate.update(coordinate_params)
       flash[:notice] = "コーディネートの更新は成功しました。"
       redirect_to admin_coordinates_path #admin/index
+    else
+      render:edit
+    end
   end
-  
+
 # 全体のランキング?
   def rank
     @all_ranks = Coordinate
@@ -40,7 +46,7 @@ class Admin::CoordinatesController < ApplicationController
   def monthly_rank
     @year = params[:year].to_i
     @month = params[:month].to_i
-    
+
     @all_ranks = Coordinate
       .joins(:tag, :favorites)
       .where(favorites: { created_at: Date.new(@year,@month).beginning_of_month..Date.civil(@year,@month).end_of_month })

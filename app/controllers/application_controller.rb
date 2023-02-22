@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :get_login_customer
+  # 全てのアクションを行う前に実行される
+  # before_action :get_login_customer
 
-  def get_login_customer
-    @customer = current_customer
-  end
+
+  # def get_login_customer
+  #   @customer = current_customer 
+  # end
 
 
   def after_sign_in_path_for(resource)

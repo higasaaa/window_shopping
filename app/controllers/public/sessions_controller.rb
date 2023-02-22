@@ -2,16 +2,17 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
- 
- #ゲストログイン用 
+
+ #ゲストログイン用
   def guest_sign_in
     customer = Customer.guest
     sign_in customer
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    flash[:notice] = 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path
   end
-  
+
   protected
-  
+
   #退会済みの会員がログインできないようにする
   #顧客が退会しているか判断するメソッド
   #処理1 入力されたemailからアカウントを1件取得
@@ -19,7 +20,7 @@ class Public::SessionsController < Devise::SessionsController
   #処理2 取得したアカウントのパスワードと入力されたパスワードが一致しているかを判断
   def reject_user
     @customer = Customer.find_by(email: params[:customer][:email])
-    if @customer 
+    if @customer
       if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == false)
         flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
         redirect_to new_customer_registration_path
@@ -28,6 +29,8 @@ class Public::SessionsController < Devise::SessionsController
       end
     end
   end
+  
+  
 
   # GET /resource/sign_in
   # def new

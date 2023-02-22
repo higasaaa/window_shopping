@@ -1,29 +1,35 @@
-<!--<p>Find me in app/views/admin/customers/index.html.erb</p>-->
-<h3>Customers</h3>
-<table class="table table-hover ml-auto mr-auto w-75">
-  <thead class="border-bottom border-top border-secondary" style="background-color: ghostwhite">
+<!--flashmessage-->
+<div class="text-white bg-danger">
+  <%= flash[:notice] %>
+</div>
+<div class="container">
+  <h1 class="d-inline-block m-4" style="font-size: 25px; background-color: #f2f2f2;">Customers</h1>
+    <table class="table table-hover ml-auto mr-auto w-75">
+    <thead class="border-bottom border-top border-secondary" style="background-color: #f2f2f2;">
+      <tr>
+        <th>customer ID</th>
+        <th>customer name</th>
+        <th>email</th>
+        <th>status</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @customers.each do |customer| %>
     <tr>
-      <th>customer ID</th>
-      <th>customer name</th>
-      <th>email</th>
-      <th>status</th>
+      <td><%= customer.id %></td>
+      <td><%= customer.nickname %></td>
+      <td><%= customer.email %></td>
+      <td>
+        <% if customer.is_deleted %>
+          <div><%= link_to "退会", edit_admin_customer_path(customer.id), class: "text-danger" %></div>
+        <% else %>
+          <div><%= link_to "有効", edit_admin_customer_path(customer.id), class: "text-success" %></div>
+        <% end %>
+      </td>
     </tr>
-  </thead>
-  <tbody>
-  <% @customers.each do |customer| %>
-  <tr>
-    <td><%= customer.id %></td>
-    <td><%= customer.nickname %></td>
-    <td><%= customer.email %></td>
-    <td>
-      <% if customer.is_deleted %>
-        <div><%= link_to "退会", edit_admin_customer_path(customer.id), class: "text-danger" %></div>
-      <% else %>
-        <div><%= link_to "有効", edit_admin_customer_path(customer.id), class: "text-success" %></div>
-      <% end %>
-    </td>
-  </tr>
-  <% end %>
-  </tbody>
-</table>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
 
