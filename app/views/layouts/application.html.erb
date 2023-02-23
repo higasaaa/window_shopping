@@ -17,7 +17,7 @@
     <header class="border-danger" style="border-bottom: 3px solid; width: 100%;">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand text-dark" href="/"><span>Window shopping</span></a>
+          <a class="navbar-brand text-dark font-weight-bold" href="/"><span>Window shopping</span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -66,11 +66,6 @@
                   Coordinatelists
                 <% end %>
               </li>
-              <!--<li>-->
-              <!--  <%#= link_to coordinate_path(current_customer.id),class: 'm-4 nav-link text-dark' do %>-->
-              <!--    コメント-->
-              <!--  <%# end %>-->
-              <!--</li>-->
               <li>
                 <%= link_to destroy_customer_session_path, method: :delete,class: 'm-4 nav-link text-dark' do %>
                   Logout
@@ -109,34 +104,14 @@
       </nav>
     </header>
 
-    <main style='min-height: 350px'>
+    <main style='min-height: 500px'>
       <%= yield %>
     </main>
 
     <footer class="border-danger" style="border-top: 10px solid;">
-      <!--<div class="border" style="border-top: 10px solid; color: #ffee32;"></div>-->
-      <div class="w-100 mt-5 mb-5"></div> <!--style="background-color: #F2F2F2; height: 70px"-->
-      <div class="container small my-5 pt-4">
-        <div class="row justify-content-center ">
-          <div class="col-md-2">
-            <%#= image_tag "Nagano Cake-logos.png", width: "60%", height: "80px" %>
-          </div>
-          <div class="col-md-2">
-            <p>配送・支払い方法</p>
-            <p>ご利用ガイド</p>
-            <p>お問い合わせ</p>
-          </div>
-          <div class="col-md-2">
-            <p>よくあるご質問</p>
-            <p>プライバシーポリシー</p>
-            <p>特定商取引法に基づく表記</p>
-          </div>
-        </div>
-        <div class="row justify-content-center mt-4" style="font-size: 5px;">
-          ©2023  Windowshopping
-        </div>
+      <div class="row justify-content-center mt-4" style="font-size: 20px;">
+        ©2023  Windowshopping
       </div>
     </footer>
-
   </body>
 </html>

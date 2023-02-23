@@ -14,7 +14,7 @@ class Admin::TagsController < ApplicationController
     if @tag.save
       redirect_to admin_tags_path
       flash[:notice] = "タグの新規登録が成功しました。"
-     else
+    else
        @tags = Tag.all
        render:index
     end

@@ -1,12 +1,12 @@
-<h6 class="d-inline-block font-weight-bold mb-5 ml-5 px-3 mt-4" style="background-color: ghostwhite">Adomin Login</h6>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="container">
+  <h1 class="m-4 col-3" style="font-size: 25px; background-color: #f2f2f2;">Adomin Login</h1>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field text-center">
     <%= f.label :email %>
     <div class="d-inline mx-3 ml-3"></div>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-25" %>
   </div>
-    
+
   <div class="field text-center">
     <%= f.label :password %>
     <div class="d-inline"></div>
@@ -24,5 +24,6 @@
     <%= f.submit "Log in", class: "btn btn-sm px-4", style:"background-color: #F3F1EA" %>
   </div>
 <% end %>
+</div>
 
-<%= render "admin/shared/links" %>
+<%#= render "admin/shared/links" %>

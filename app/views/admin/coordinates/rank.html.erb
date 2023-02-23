@@ -1,14 +1,14 @@
 
-  
+
   <div>
     <% if @year %>
       <%= @year %>年 <%= @month %>月
     <% end %>
   </div>
- 
+
  <!--いいね順コーデランキング-->
 <div class="container">
-  <h1 style="font-size: 25px;">Favorites All Ranking</h1>
+  <h1 class="m-4 col-3" style="font-size: 25px; background-color: #f2f2f2;">Favorites All Ranking</h1>
   <% @all_ranks.each.with_index(1) do |coordinate, i| %>
   No.<%= i %>
   <ul>
