@@ -24,7 +24,7 @@ class Customer < ApplicationRecord
       customer.password = SecureRandom.urlsafe_base64
       customer.nickname = "ゲストさん"
       customer.live_area = "東京都"
-      # customer.sex = ["女性"]
+      customer.sex = ["女性"]
     end
   end
 

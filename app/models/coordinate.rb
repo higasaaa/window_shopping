@@ -20,7 +20,7 @@ class Coordinate < ApplicationRecord
 
   def get_coordinate_image
     unless image.attached?
-      file_path = Rails.root.join('app/assets/images/fashion_torso_22957-300x300.jpg')
+      file_path = Rails.root.join('app/javascript/images/fashion_torso_22957-300x300.jpg')
       image.attach(io:File.open(file_path),filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     image

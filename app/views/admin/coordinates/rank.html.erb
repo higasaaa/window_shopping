@@ -13,7 +13,7 @@
   No.<%= i %>
   <ul>
     <li class="row">
-      <div class="p-3"><%= image_tag coordinate.get_coordinate_image(100,100) %></div>
+      <div class="p-3"><%= image_tag coordinate.get_coordinate_image, style: "height: 200px; width: 200px; object-fit: contain;" %></div>
       <div class="p-3">
         <div>
           tag :<%= coordinate.tag_name %>
