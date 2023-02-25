@@ -1,6 +1,5 @@
 class Public::CommentsController < ApplicationController
-
-
+  
   def create
     @coordinate = Coordinate.find(params[:coordinate_id])
     comment = current_customer.comments.new(comment_params)

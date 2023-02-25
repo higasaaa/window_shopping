@@ -18,11 +18,19 @@ class Coordinate < ApplicationRecord
     joins(:tag).where("tags.tag_name LIKE ?", "%#{keyword}%") #joinsはモデルと結合する
   end
 
-  def get_coordinate_image(width, height)
+  def get_coordinate_image
     unless image.attached?
       file_path = Rails.root.join('app/javascript/images/fashion_torso_22957-300x300.jpg')
-      image.attach(io:File.open(file_path),filename: 'default-image.jpg', content_type:'image/jpeg')
+      image.attach(io:File.open(file_path),filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    image.variant(resize_to_fill: [width, height]).processed
+    image
   end
+# 最初下記で実装、上記に変更したが念の為残しておく
+  # def get_coordinate_image(width, height)
+  #   unless image.attached?
+  #     file_path = Rails.root.join('app/javascript/images/fashion_torso_22957-300x300.jpg')
+  #     image.attach(io:File.open(file_path),filename: 'default-image.jpg', content_type: 'image/jpeg')
+  #   end
+  #   image.variant(resize_to_fill: [width, height]).processed
+  # end
 end

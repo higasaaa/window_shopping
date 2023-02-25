@@ -1,7 +1,4 @@
-<!--flashmessage-->
-<div class="text-white bg-danger">
-  <%= flash[:notice] %>
-</div>
+
 <%= form_with model: @customer,url: customer_registration_path do |f| %>
 <div class="container">
 <h1 class="m-4 col-3" style="font-size: 25px; background-color: #f2f2f2;">Sign up</h1><br>
@@ -38,7 +35,7 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
       <div class="field mb-2">
-        <%= f.select :sex, [["",""], ["女性","女性"], ["男性","男性"]], {} %>
+        <%= f.select :sex, [ ["女性","女性"], ["男性","男性"]], { include_blank: "選択してください"} %>
       </div>
       <div class="field mb-2">
         <%= f.text_field :live_area %>

@@ -1,6 +1,12 @@
+<!--flashmessage-->
+<div class="text-white bg-danger">
+  <%= flash[:notice] %>
+</div>
+
 <div class="container">
-  <h1 class="m-4 col-3" style="font-size: 25px; background-color: #f2f2f2;">Adomin Login</h1>
+  <h1 class="m-4 col-3" style="font-size: 25px; background-color: #f2f2f2;">Admin Login</h1>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
   <div class="field text-center">
     <%= f.label :email %>
     <div class="d-inline mx-3 ml-3"></div>
