@@ -16,7 +16,7 @@
     <div class="col-6 col-md-3">
       <div class="text-center">
         <%= link_to coordinate_path(coordinate.id) do %>
-          <%= image_tag coordinate.image.variant( resize: "300x270", gravity: "center", crop: "200x210+0+0" ), class: "border-window my-5", style: "object-fit: contain;" %>
+          <%= image_tag coordinate.image.variant( resize: "300x270", gravity: "center", crop: "200x220+0+0" ), class: "border-window my-5", style: "object-fit: contain;" %>
           <%#= image_tag coordinate.get_coordinate_image(150,150), class: "border-window my-4", style: "border-style: solid: 5px; object-fit: cover;" %>
         <% end %>
       </div>

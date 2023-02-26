@@ -1,6 +1,5 @@
 <li class="row">
-  <div class="p-3"><%= image_tag comment.coordinate.get_coordinate_image(100,150) %></div>  <!--画像いる？-->
-  <div class="p-3">
+  <div>
     <div style="font-size: 18px;"><%= comment.customer.nickname %></div>
     <div style="font-size: 13px;"><%= comment.created_at.strftime('%Y/%m/%d') %></div>
     <p style="font-size: 16px;"><%= comment.content %></p>
