@@ -25,9 +25,12 @@ Rails.application.routes.draw do
    # 管理者側のルーティング設定
    namespace :admin do
     get '/' => 'customers#index'
-    resources :coordinates, only: [:new, :create, :index, :edit, :update]
     get 'coordinates/rank' => 'coordinates#rank'
     get 'coordinates/rank/:year/:month' => 'coordinates#monthly_rank'
+    resources :coordinates, only: [:new, :create, :index, :edit, :update, :show] do
+      resources :comments, only: [:destroy]
+    end
+
     resources :tags, only: [:index, :create, :edit, :update]
     resources :customers, only: [:edit, :update]
     # get 'search' => 'coordinates#search'

@@ -12,6 +12,11 @@ class Admin::CoordinatesController < ApplicationController
     @coordinate = Coordinate.find(params[:id])
   end
 
+  def show
+    @coordinate = Coordinate.find(params[:id])
+    @comments = @coordinate.comments
+  end
+
   def create
     @coordinate = Coordinate.new(coordinate_params)
     if @coordinate.save
@@ -32,8 +37,9 @@ class Admin::CoordinatesController < ApplicationController
     end
   end
 
-# 全体のランキング?
+# 全体のランキング
   def rank
+    # byebug
     @all_ranks = Coordinate
       .joins(:tag, :favorites)
       .group(:coordinate_id)
