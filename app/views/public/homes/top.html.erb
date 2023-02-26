@@ -2,11 +2,12 @@
 <div class="text-white bg-danger">
   <%= flash[:notice] %>
 </div>
+
 <div class="container">
   <!--top画像-->
   <div class="row">
-    <div class="img-fluid text-center top-image mt-4">
-      <%= image_tag "topimage.jpg", style: "height: 500px;" %>
+    <div class="img-fluid text-center top-image mt-5">
+      <%= image_tag "topimage.jpg", style: "height: 450px; object-fit: contain;" %>
     </div>
   </div>
 
@@ -15,7 +16,7 @@
     <div class="col-6 col-md-3">
       <div class="text-center">
         <%= link_to coordinate_path(coordinate.id) do %>
-          <%= image_tag coordinate.get_coordinate_image, class: "border-window my-4", style: "height: 200px; width: 200px; object-fit: contain;" %>
+          <%= image_tag coordinate.image.variant( resize: "300x270", gravity: "center", crop: "200x210+0+0" ), class: "border-window my-5", style: "object-fit: contain;" %>
           <%#= image_tag coordinate.get_coordinate_image(150,150), class: "border-window my-4", style: "border-style: solid: 5px; object-fit: cover;" %>
         <% end %>
       </div>

@@ -15,7 +15,8 @@
     <div class="w-25">
       <div>
         <%= link_to coordinate_path(coordinate.id) do %>
-          <%= image_tag coordinate.get_coordinate_image, style: "height: 200px; width: 200px; object-fit: contain;"%>
+          <%= image_tag coordinate.image.variant( resize: "250x250", gravity: "center", crop: "200x210+0+0" ), class: "m-4", style: "object-fit: contain;" %>
+          <%#= image_tag coordinate.get_coordinate_image, style: "height: 200px; width: 200px; object-fit: contain;"%>
         <% end %>
       </div>
       <div><%= coordinate.tag.tag_name %></div>
