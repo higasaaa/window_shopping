@@ -9,9 +9,12 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'
     resource :customers, only: [:edit, :update]
-    patch '/customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-    get 'customers/confirm' => 'customers#confirm' #いる？
     get 'customers' => 'customers#show'
+    # get 'customers/favorite' => 'customers#favorite', as: 'favorite'
+    patch '/customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
+    
+    
+    get 'customers/confirm' => 'customers#confirm'
     resources :coordinates, only: [:index, :show] do
       resources :comments, only: [:destroy, :create] #update,index削除した
       resource :favorites, only: [:create, :destroy]

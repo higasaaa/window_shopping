@@ -1,19 +1,12 @@
-<!--flash message-->
-<div class="text-white bg-danger">
-  <%= flash[:notice] %>
-</div>
+<!--flash message有-->
 <div class="container">
   <h1 class="d-inline-block m-4" style="font-size: 25px; background-color: #f2f2f2;">Tags,lists・post</h1>
-  <!-- errormassage-->
-  <% if @tag.errors.any? %>
-  <div>
-    <ul style="color: red">
-      <% @tag.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+
+<!-- error massage-->
+  <div id="error-massage">
+    <%= render "layouts/error_massages", model: @tag %>
   </div>
-  <% end %>
+
 
   <div class="ml-5">
     <%= form_with model: @tag, url:admin_tags_path, local:true do |f| %>

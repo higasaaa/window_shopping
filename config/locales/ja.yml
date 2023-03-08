@@ -31,10 +31,15 @@ ja:
         too_short: は%{count}文字以上で入力してください
         wrong_length: は%{count}文字で入力してください
 
+
+    time:
+      formats:
+        default: "%Y/%m/%d %H:%M:%S"
+
     attributes:
       customer:
         sex: gender
-        
+        content: comment
 
 
       template:

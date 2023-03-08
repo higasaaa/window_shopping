@@ -1,6 +1,11 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
-  
+
+  def favorite
+    @customer = current_customer
+    @favorites = @customer.favorites
+  end
+
   def show
     @customer = current_customer
   end
@@ -15,7 +20,7 @@ class Public::CustomersController < ApplicationController
       flash[:notice] = "登録情報を更新しました。"
       redirect_to customers_path
     else
-      render:edit
+      render :edit
     end
   end
 

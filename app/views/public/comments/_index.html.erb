@@ -1,3 +1,4 @@
+<% coordinate.comments.each do |comment| %>
 <li class="row">
   <div>
     <div style="font-size: 18px;"><%= comment.customer.nickname %></div>
@@ -5,10 +6,10 @@
     <p style="font-size: 16px;"><%= comment.content %></p>
     <div>
       <% if comment.customer == current_customer %>
-        <%= link_to "Destroy", coordinate_comment_path(comment.coordinate, comment),method: :delete, remote: true, class: "btn btn-danger pull-right btn-sm" %>
+        <%= link_to "Destroy", coordinate_comment_path(comment.coordinate, comment),method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger pull-right btn-sm" %>
       <% end %>
     </div>
   </div>
 </li>
-
+<% end %>
 

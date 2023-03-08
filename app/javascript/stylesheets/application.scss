@@ -54,6 +54,33 @@
   background-color: #f2f2f2;
 }
 
+.pagination {
+  justify-content: center;
+}
+
+
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  color:  #666666;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: white;     /*背景の色を変える*/
+}
+
+
+.page-item.active .page-link {
+    // z-index: 3;
+    color: black;
+    background-color: white;
+    border-color: #666666;
+}
+
+.pagination>li>a:hover {
+  color: black;
+}
 // .navbar-brand {
 //   background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgba(46, 204, 113, 1) 50%);
 //   background-position: 0 0;

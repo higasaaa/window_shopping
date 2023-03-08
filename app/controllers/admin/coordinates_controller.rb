@@ -20,7 +20,7 @@ class Admin::CoordinatesController < ApplicationController
   def create
     @coordinate = Coordinate.new(coordinate_params)
     if @coordinate.save
-      flash[:notice] = "コーディネートの新規投稿は成功しました。"
+      flash[:notice] = "コーディネートの新規投稿は成功しました"
       redirect_to admin_coordinates_path #admin/index
     else
       render:new
@@ -30,7 +30,7 @@ class Admin::CoordinatesController < ApplicationController
   def update
     @coordinate = Coordinate.find(params[:id])
     if @coordinate.update(coordinate_params)
-      flash[:notice] = "コーディネートの更新は成功しました。"
+      flash[:notice] = "コーディネートの更新は成功しました"
       redirect_to admin_coordinates_path #admin/index
     else
       render:edit
@@ -48,7 +48,7 @@ class Admin::CoordinatesController < ApplicationController
       .select('coordinates.*, tags.tag_name, count(favorites.id) AS cnt')
   end
 
-# monthlyランキング
+# monthlyランキング modelに記述できるところは記述したい
   def monthly_rank
     @year = params[:year].to_i
     @month = params[:month].to_i

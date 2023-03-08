@@ -1,7 +1,4 @@
-<!--flash message-->
-<div class="text-white bg-danger">
-  <%= flash[:notice] %>
-</div>
+<!--flash message有-->
 <div class="container">
   <h1 class="d-inline-block m-4" style="font-size: 25px; background-color: #f2f2f2;">Coordinates</h1>
   <div>
@@ -29,7 +26,7 @@
         <td><%= coordinate.id %></td>
         <td><%= coordinate.tag.tag_name %></td>
         <td><%= coordinate.total_price.to_s(:delimited) %></td>
-        <td><%= coordinate.favorites.count %></td> <!--まだない-->
+        <td><%= coordinate.favorites.count %></td> 
         <td><%= link_to "Edit", edit_admin_coordinate_path(coordinate.id), class: "btn btn-outline-secondary text-dark" %></td>
       </tr>
       <% end %>

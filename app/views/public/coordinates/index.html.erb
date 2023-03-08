@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="my-4 col-3" style="font-size: 25px; background-color: #f2f2f2">Coordinate Lists</h1>
+  <h1 class="my-4 col-sm-3" style="font-size: 25px; background-color: #f2f2f2">Coordinate Lists</h1>
 
 <!--検索機能-->
   <%= form_with url: coordinates_path, method: :get, local: true do |f| %>
@@ -29,4 +29,8 @@
     </div>
     <% end %>
   </div>
+<!--ページネーション-->
+  <%= paginate @coordinates %>
 </div>
+
+

@@ -1,8 +1,4 @@
-<!--flashmessage-->
-<div class="text-white bg-danger">
-  <%= flash[:notice] %>
-</div>
-
+<!--flashmessage 有-->
 <div class="container">
   <h1 class="m-4 col-3" style="font-size: 25px; background-color: #f2f2f2;">Admin Login</h1>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

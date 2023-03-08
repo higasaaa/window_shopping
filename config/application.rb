@@ -13,6 +13,9 @@ module WindowShopping
 
     # 日本語の言語設定
     config.i18n.default_locale = :ja
+    
+    # 東京の時間を表示させる
+    config.time_zone = 'Tokyo'
 
     # Configuration for the application, engines, and railties goes here.
     #

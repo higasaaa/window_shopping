@@ -1,9 +1,13 @@
-<%= form_with model:[coordinate, comment] do |f| %>
-<div>
-    <%= f.text_area :content, placeholder:"comment here", class: "form-control w-25" %>
-</div>
-<div>
+<%= form_with(model:[coordinate, comment], local: false) do |f| %>
+  <!-- error massage-->
+  <div id="comments-error">
+    <%= render "layouts/error_massages", model: f.object %>
+  </div>
+  <div class="comments-form">
+    <%= f.text_area :content, placeholder: "comment here", class: "form-control w-25" %>
+  </div>
+  <div>
     <%= f.submit "post comment", class: "btn btn-outline-secondary btn-sm mt-2 ml-auto mb-4" %>
-</div>
+  </div>
 <% end %>
 
