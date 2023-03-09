@@ -5,6 +5,7 @@ class CreateCoordinates < ActiveRecord::Migration[6.1]
       t.integer :favorite_id
       t.text :coordinates_description, null: false
       t.integer :total_price, null: false
+      t.integer :bookmark_id
       t.timestamps
     end
   end

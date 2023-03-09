@@ -4,6 +4,8 @@ class Coordinate < ApplicationRecord
   belongs_to :tag
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :bookmarks,
+  dependent: :destroy
 
   validates :total_price, presence: true
   validates :coordinates_description, presence: true, length: { maximum: 70 }
@@ -25,6 +27,11 @@ class Coordinate < ApplicationRecord
     end
     image
   end
+
+  def bookmarked_by?(customer)
+    bookmarks.where(customer_id: customer).exists?
+  end
+
 # 最初下記で実装、上記に変更したが念の為残しておく
   # def get_coordinate_image(width, height)
   #   unless image.attached?

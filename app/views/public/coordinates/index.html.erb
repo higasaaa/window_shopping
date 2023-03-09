@@ -26,6 +26,11 @@
       <div id="favorite_buttons_<%= coordinate.id %>">
         <%= render "public/favorites/favorite", coordinate: coordinate %>
       </div>
+
+      <!--お気に入り機能-->
+      <div>
+        <%= render "public/bookmarks/bookmark", coordinate: coordinate %>
+      </div>
     </div>
     <% end %>
   </div>

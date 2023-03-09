@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'bookmarks/create'
+    get 'bookmarks/destroy'
+  end
   # namespace :admin do
   #   get 'coordinates/new'
   #   get 'coordinates/index'
@@ -12,10 +16,9 @@ Rails.application.routes.draw do
     get 'customers' => 'customers#show'
     # get 'customers/favorite' => 'customers#favorite', as: 'favorite'
     patch '/customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-    
-    
     get 'customers/confirm' => 'customers#confirm'
     resources :coordinates, only: [:index, :show] do
+      resource :bookmarks, only: [:create, :destroy]
       resources :comments, only: [:destroy, :create] #update,index削除した
       resource :favorites, only: [:create, :destroy]
     end

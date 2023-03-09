@@ -4,6 +4,8 @@ class Customer < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable

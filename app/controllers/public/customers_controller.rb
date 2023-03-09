@@ -3,7 +3,6 @@ class Public::CustomersController < ApplicationController
 
   def favorite
     @customer = current_customer
-    @favorites = @customer.favorites
   end
 
   def show
