@@ -1,22 +1,21 @@
 <div class="container">
-  <h1 class="my-4 col-sm-3" style="font-size: 25px; background-color: #f2f2f2">Coordinate Lists</h1>
+  <h1 class="my-4 col-6 col-sm-3 d-inline-block" style="font-size: 25px; background-color: #f2f2f2">Coordinate Lists</h1>
 
-<!--検索機能-->
+  <!--検索機能-->
   <%= form_with url: coordinates_path, method: :get, local: true do |f| %>
-   <div class="input-group w-25">
-      <%= f.text_field :keyword, value: params[:keyword], class: "form-control" %>
-      <%= f.submit "search", class: "btn btn-outline-secondary btn-sm mx-3" %>
-    <% end %>
+  <div class="input-group col-sm-3">
+    <%= f.text_field :keyword, value: params[:keyword], class: "form-control" %>
+    <%= f.submit "search", class: "btn btn-outline-secondary btn-sm mx-3" %>
+  <% end %>
   </div>
 
-<!--コーディネート一覧-->
+  <!--コーディネート一覧-->
   <div class="d-flex flex-wrap">
     <% @coordinates.each do |coordinate| %>
-    <div class="w-25">
+    <div class="col-6 col-sm-3">
       <div>
-        <%= link_to coordinate_path(coordinate.id) do %>
-          <%= image_tag coordinate.image.variant( resize: "250x250", gravity: "center", crop: "200x210+0+0" ), class: "m-4", style: "object-fit: contain;" %>
-          <%#= image_tag coordinate.get_coordinate_image, style: "height: 200px; width: 200px; object-fit: contain;"%>
+        <%= link_to coordinate_path(coordinate.id), class: "coordinate_link" do %>
+          <%= image_tag coordinate.image.variant( resize: "250x250", gravity: "center", crop: "200x210+0+0" ), class: "img-fluid my-3", style: "object-fit: contain;" %>
         <% end %>
       </div>
       <div><%= coordinate.tag.tag_name %></div>
@@ -28,14 +27,12 @@
       </div>
 
       <!--お気に入り機能-->
-      <div>
+      <div id="bookmark_buttons_<%= coordinate.id %>">
         <%= render "public/bookmarks/bookmark", coordinate: coordinate %>
       </div>
     </div>
     <% end %>
   </div>
-<!--ページネーション-->
+  <!--ページネーション-->
   <%= paginate @coordinates %>
 </div>
-
-

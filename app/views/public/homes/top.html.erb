@@ -2,17 +2,19 @@
 <div class="container">
   <!--top画像-->
   <div class="row">
-    <div class="img-fluid text-center top-image mt-5">
-      <%= image_tag "topimage.jpg", style: "height: 450px; object-fit: contain;" %>
+    <div class="col-sm-12">
+      <div class="text-center top-image mt-3">
+      <%= image_tag "topimage.jpg", class: "img-fluid" %>
+      </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row my-5">
     <% @coordinates.each do |coordinate| %>
-    <div class="col-6 col-md-3">
+    <div class="col-6 col-sm-3">
       <div class="text-center">
-        <%= link_to coordinate_path(coordinate.id) do %>
-          <%= image_tag coordinate.image.variant( resize: "300x270", gravity: "center", crop: "200x220+0+0" ), class: "border-window my-5", style: "object-fit: contain;" %>
+        <%= link_to coordinate_path(coordinate.id), class: "coordinate_link" do %>
+          <%= image_tag coordinate.image.variant( resize: "300x270", gravity: "center", crop: "200x220+0+0" ), class: "border-window my-3 img-fluid", style: "object-fit: contain;" %> 
           <%#= image_tag coordinate.get_coordinate_image(150,150), class: "border-window my-4", style: "border-style: solid: 5px; object-fit: cover;" %>
         <% end %>
       </div>

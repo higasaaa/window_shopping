@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 class="my-4 col-6 col-sm-3 d-inline-block" style="font-size: 25px; background-color: #f2f2f2">Bookmarks</h1>
+  <div class="d-flex flex-wrap">
+    <!--ブックマーク一覧-->
+    <% @bookmarks.each do |bookmark| %>
+    <div class="col-6 col-sm-3">
+      <div>
+        <%= image_tag bookmark.coordinate.image.variant( resize: "250x250", gravity: "center", crop: "200x210+0+0" ), class: "img-fluid my-3", style: "object-fit: contain;" %>
+      </div>
+      <div><%= bookmark.coordinate.tag.tag_name %></div>
+      <div>￥<%= bookmark.coordinate.total_price.to_s(:delimited) %></div>
+      <div><%= l bookmark.coordinate.created_at %></div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+

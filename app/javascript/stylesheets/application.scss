@@ -1,4 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
 .top-image {
     height: 100%;
     width: 100%;
@@ -9,6 +11,7 @@
       border-style: solid;
       padding: 15px;
     }
+
 
 // .top-code-image {
 //   border-color: #FFD700;
@@ -30,6 +33,7 @@
 .border-window {
   border: 5px solid #6c757d;
   padding: 10px ;
+  min-height: 200px;
 }
 // いいねボタン
 .like-btn {
@@ -38,6 +42,16 @@
 }
 
 .unlike-btn {
+  color: #777777;
+  font-size: 20px;
+}
+
+.bookmark-btn {
+  color: #DC143C;
+  font-size: 20px;
+}
+
+.unbookmark-btn {
   color: #777777;
   font-size: 20px;
 }
@@ -91,3 +105,7 @@
 //   background-position: -100% 0;
 //   color: #fff;
 // }
+
+.coordinate_link {
+  display: block;
+}

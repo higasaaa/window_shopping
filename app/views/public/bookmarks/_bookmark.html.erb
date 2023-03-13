@@ -1,6 +1,10 @@
 
 <% if coordinate.bookmarked_by?(current_customer) %>
-  <%= link_to "お気に入りから外す", coordinate_bookmarks_path(coordinate), method: :delete %>
+  <%= link_to coordinate_bookmarks_path(coordinate), method: :delete, remote: true, class: "bookmark-btn" do %>
+    <i class="fas fa-bookmark"></i>
+  <% end %>
 <% else %>
-  <%= link_to "お気に入り登録する", coordinate_bookmarks_path(coordinate), method: :post %>
+  <%= link_to coordinate_bookmarks_path(coordinate), method: :post, remote: true, class: "unbookmark-btn" do %>
+    <i class="fas fa-bookmark"></i>
+  <% end %>
 <% end %>

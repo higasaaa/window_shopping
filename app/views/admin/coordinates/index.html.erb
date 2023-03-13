@@ -4,15 +4,15 @@
   <div>
     <%= link_to "New post coordinate", new_admin_coordinate_path, class: "btn btn-warning btn-sm text-light mb-4 ml-4"%>
   </div>
-  <table class="table table-hover ml-auto mr-auto w-75">
+  <table class="table table-hover ml-auto mr-auto">
     <thead class="border-bottom border-top border-secondary" style="background-color: #f2f2f2;">
-      <tr>
-      <th></th>
-      <th>coordinate ID</th>
-      <th>tag name</th>
-      <th>total price</th>
-      <th>favorites</th>
-      <th></th>
+      <tr class="d-none d-sm-table-row">
+        <th></th>
+        <th>coordinate ID</th>
+        <th>tag name</th>
+        <th>total price</th>
+        <th>favorites</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -24,9 +24,9 @@
           <% end %>
         </td>
         <td><%= coordinate.id %></td>
-        <td><%= coordinate.tag.tag_name %></td>
-        <td><%= coordinate.total_price.to_s(:delimited) %></td>
-        <td><%= coordinate.favorites.count %></td> 
+        <td class="d-none"><%= coordinate.tag.tag_name %></td>
+        <td>￥<%= coordinate.total_price.to_s(:delimited) %><br><span class="d-inline d-sm-none"><%= coordinate.tag.tag_name %></span></td>
+        <td><i class="fas fa-heart"></i><%= coordinate.favorites.count %></td>
         <td><%= link_to "Edit", edit_admin_coordinate_path(coordinate.id), class: "btn btn-outline-secondary text-dark" %></td>
       </tr>
       <% end %>
