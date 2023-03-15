@@ -39,13 +39,27 @@ class Admin::CoordinatesController < ApplicationController
 
 # 全体のランキング
   def rank
-    # byebug
     @all_ranks = Coordinate
       .joins(:tag, :favorites)
       .group(:coordinate_id)
       .order('count(favorites.id) desc')
-      .limit(20)
+      .limit(8)
       .select('coordinates.*, tags.tag_name, count(favorites.id) AS cnt')
+
+    # ランキングのための変数設定
+    last_rank = 0
+    last_fav_count = Float::INFINITY
+
+    #　Coordinateの1つ1つにrankを付与していく
+    @all_ranks = @all_ranks.map do |c|
+      #　一個前のCoordinateよりいいね数が少なかったら
+      if c.favorites.count < last_fav_count
+        last_rank += 1 #ランクを1つあげる
+        last_fav_count = c.favorites.count # いいねカウントも更新
+      end
+      c.rank = last_rank #rankを付与していく
+      c
+    end
   end
 
 # monthlyランキング modelに記述できるところは記述したい

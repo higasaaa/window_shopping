@@ -1,5 +1,8 @@
 class Coordinate < ApplicationRecord
   has_one_attached :image
+  # Admin::CoordinatesController#rankでランクという属性をセットするために使用
+  
+  attr_accessor :rank
 
   belongs_to :tag
   has_many :favorites, dependent: :destroy

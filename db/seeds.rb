@@ -17,20 +17,11 @@
       password: "password#{n + 1}",
       password_confirmation: "password#{n + 1}",
       nickname: "ニックネーム#{n + 1}",
-      birthdate: "1990-01-01#{n + 1}",
+      birthdate: "1990-01-#{n + 1}",
       sex: "女性",
-      live_area: "住んでいる地域"
+      live_area: "東京都"
     )
   end
-# customer = Customer.create!(
-#   [
-#     {email: 'jasmine@customer.com', name: 'Olivia', password: 'password', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"), filename:"sample-user1.jpg")},
-#     {email: 'dahlia@customer.com', name: 'James', password: 'password', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpg"), filename:"sample-user2.jpg")},
-#     {email: 'mint@test.com', name: 'Lucas', password: 'password', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg")},
-#     {email: 'mint@test.com', name: 'Lucas', password: 'password', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg")},
-#     {email: 'mint@test.com', name: 'Lucas', password: 'password', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg")}
-#   ]
-# )
 
   puts "customerを作成しました"
 

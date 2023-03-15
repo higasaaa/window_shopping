@@ -25,7 +25,7 @@ class Customer < ApplicationRecord
     find_or_create_by!(email: 'guest@example.com') do |customer|
       customer.password = SecureRandom.urlsafe_base64
       customer.password_confirmation = customer.password
-      customer.nickname = "ゲストさん"
+      customer.nickname = "ゲスト"
       customer.live_area = "東京都"
       customer.sex = "女性"
     end
