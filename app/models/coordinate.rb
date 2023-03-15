@@ -8,7 +8,7 @@ class Coordinate < ApplicationRecord
   dependent: :destroy
 
   validates :total_price, presence: true
-  validates :coordinates_description, presence: true, length: { maximum: 70 }
+  validates :coordinates_description, presence: true
 
   def favorited_by?(customer) #引数で渡されたユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べる
     favorites.exists?(customer_id: customer.id)

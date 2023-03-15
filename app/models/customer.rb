@@ -5,13 +5,13 @@ class Customer < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
   validates :nickname, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: {minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, length: {minimum: 6 }, on: :create
   # 上記の２つのパスワードが一致していなかったらプライベート下の処理を実行する
@@ -24,9 +24,10 @@ class Customer < ApplicationRecord
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|
       customer.password = SecureRandom.urlsafe_base64
+      customer.password_confirmation = customer.password
       customer.nickname = "ゲストさん"
       customer.live_area = "東京都"
-      customer.sex = ["女性"]
+      customer.sex = "女性"
     end
   end
 
