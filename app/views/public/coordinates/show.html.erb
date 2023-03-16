@@ -6,7 +6,7 @@
     <div class="col-sm-6">
       <div class="mt-3 ml-3" style="font-size: 20px;">
         Posted date :
-        <%= l @coordinate.created_at, format: :long %> <!--適応されない-->
+        <%= l @coordinate.created_at %> <!--適応されない-->
       </div>
 
       <div class="mt-3 ml-3" style="font-size: 20px;">
@@ -20,7 +20,7 @@
       </div>
 
       <div class="mt-3 ml-3" style="font-size: 20px;">
-        Favorites :
+        Favorites <i class="fas fa-heart"></i> :
         <%= @coordinate.favorites.count %>
       </div>
       <div class="mt-3 ml-3" style="font-size: 20px;">
@@ -36,7 +36,7 @@
 </div>
 
 <div class="container">
-  <div class="col-sm-3">
+  <div class="col-6">
     <h2 class="my-3 d-inline-block ml-auto" style="font-size: 25px; background-color: #f2f2f2;">Comments</h2>
     <!--コメントテンプレート collection使用するとeach文使わなくてok(動作も早くなる)-->
     <ul>

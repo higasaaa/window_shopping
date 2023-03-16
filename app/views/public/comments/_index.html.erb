@@ -2,7 +2,7 @@
 <li class="row">
   <div>
     <div style="font-size: 19px;"><%= comment.customer.nickname %></div>
-    <div style="font-size: 15px;"><%= l comment.created_at, format: :long %></div>
+    <div style="font-size: 15px;"><%= l comment.created_at %></div>
     <p style="font-size: 17px;"><%= comment.content %></p>
     <div>
       <% if comment.customer == current_customer %>

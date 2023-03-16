@@ -47,3 +47,21 @@
     ]
   )
   puts "coordinateを作成しました"
+
+  20.times do |n|
+    time = Time.now - rand(2).month
+
+    customer_id = rand(5) + 1 # ユーザー増えたときはrandを変更
+    coordinate_id = rand(4) + 1 # コーディネートの数が増えたときは、randを変更
+
+    favorite = Favorite.find_by(customer_id: customer_id, coordinate_id: coordinate_id)
+
+    if favorite.nil?
+      Favorite.create!(
+        customer_id: customer_id,
+        coordinate_id: coordinate_id,
+        created_at: time,
+        updated_at: time
+      )
+    end
+  end

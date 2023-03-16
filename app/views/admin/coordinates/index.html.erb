@@ -9,8 +9,8 @@
       <tr class="d-none d-sm-table-row">
         <th></th>
         <th>coordinate ID</th>
-        <th>tag name</th>
-        <th>total price</th>
+        <th>tag</th>
+        <th>price</th>
         <th>favorites</th>
         <th></th>
       </tr>
@@ -24,7 +24,7 @@
           <% end %>
         </td>
         <td><%= coordinate.id %></td>
-        <td class="d-none"><%= coordinate.tag.tag_name %></td>
+        <td class="d-sm-block"><%= coordinate.tag.tag_name %></td>
         <td>￥<%= coordinate.total_price.to_s(:delimited) %><br><span class="d-inline d-sm-none"><%= coordinate.tag.tag_name %></span></td>
         <td><i class="fas fa-heart"></i><%= coordinate.favorites.count %></td>
         <td><%= link_to "Edit", edit_admin_coordinate_path(coordinate.id), class: "btn btn-outline-secondary text-dark" %></td>

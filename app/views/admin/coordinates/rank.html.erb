@@ -14,10 +14,12 @@
       <div class="row">
         <div class="p-3">
           No.<%= coordinate.rank %>
-          <div><%= image_tag coordinate.get_coordinate_image, style: "height: 200px; width: 200px; object-fit: contain;" %></div>
-          <div>tag :<%= coordinate.tag_name %></div>
-          <div>favorits♡ :<%= coordinate.cnt %></div>
-          <div>comments :<%= coordinate.comments.count %></div>
+          <div class="text-center">
+            <div><%= image_tag coordinate.get_coordinate_image, style: "height: 200px; width: 200px; object-fit: contain;" %></div>
+            <div>tag :<%= coordinate.tag_name %></div>
+            <div>favorits♡ :<%= coordinate.cnt %></div>
+            <div>comments :<%= coordinate.comments.count %></div>
+          </div>
         </div>
       </div>
     </div>
