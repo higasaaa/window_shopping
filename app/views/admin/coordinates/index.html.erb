@@ -1,8 +1,8 @@
 <!--flash message有-->
 <div class="container">
   <h1 class="d-inline-block m-4" style="font-size: 25px; background-color: #f2f2f2;">Coordinates</h1>
-  <div>
-    <%= link_to "New post coordinate", new_admin_coordinate_path, class: "btn btn-warning btn-sm text-light mb-4 ml-4"%>
+  <div class="mb-4" style="font-size: 20px;">
+    New post coordinate <%= link_to "click here", new_admin_coordinate_path, class: "new-post", style: "font-size: 22px; color: #6c757d"%>
   </div>
   <table class="table table-hover ml-auto mr-auto">
     <thead class="border-bottom border-top border-secondary" style="background-color: #f2f2f2;">
@@ -24,8 +24,8 @@
           <% end %>
         </td>
         <td><%= coordinate.id %></td>
-        <td class="d-sm-block"><%= coordinate.tag.tag_name %></td>
-        <td>￥<%= coordinate.total_price.to_s(:delimited) %><br><span class="d-inline d-sm-none"><%= coordinate.tag.tag_name %></span></td>
+        <td><%= coordinate.tag.tag_name %></td>
+        <td>￥<%= coordinate.total_price.to_s(:delimited) %></td>
         <td><i class="fas fa-heart"></i><%= coordinate.favorites.count %></td>
         <td><%= link_to "Edit", edit_admin_coordinate_path(coordinate.id), class: "btn btn-outline-secondary text-dark" %></td>
       </tr>

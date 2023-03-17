@@ -7,7 +7,7 @@
 
 <!--いいね順コーデランキング-->
 <div class="container">
-  <h1 class="m-4 col-3" style="font-size: 25px; background-color: #f2f2f2;">Favorites All Ranking</h1>
+  <h1 class="d-inline-block px-3 mb-4 mt-4" style="font-size: 25px; background-color: #f2f2f2;">Favorites All Ranking</h1>
   <div class="d-flex flex-wrap">
     <% @all_ranks.each.with_index(1) do |coordinate, i| %>
     <div class="col-3">
@@ -17,7 +17,7 @@
           <div class="text-center">
             <div><%= image_tag coordinate.get_coordinate_image, style: "height: 200px; width: 200px; object-fit: contain;" %></div>
             <div>tag :<%= coordinate.tag_name %></div>
-            <div>favorits♡ :<%= coordinate.cnt %></div>
+            <div>favorits<i class="fas fa-heart"></i> :<%= coordinate.cnt %></div>
             <div>comments :<%= coordinate.comments.count %></div>
           </div>
         </div>

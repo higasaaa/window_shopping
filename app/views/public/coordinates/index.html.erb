@@ -3,7 +3,7 @@
 
   <!--検索機能-->
   <%= form_with url: coordinates_path, method: :get, local: true do |f| %>
-  <div class="input-group col-sm-3">
+  <div class="input-group col-sm-3 col-md-6">
     <%= f.text_field :keyword, value: params[:keyword], class: "form-control" %>
     <%= f.submit "search", class: "btn btn-outline-secondary btn-sm mx-3" %>
   <% end %>

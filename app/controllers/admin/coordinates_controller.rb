@@ -62,7 +62,7 @@ class Admin::CoordinatesController < ApplicationController
     end
   end
 
-# monthlyランキング modelに記述できるところは記述したい
+# URLに西暦+月を入力後
   def monthly_rank
     @year = params[:year].to_i
     @month = params[:month].to_i
@@ -89,7 +89,7 @@ class Admin::CoordinatesController < ApplicationController
       c.rank = last_rank #rankを付与していく
       c
     end
-
+    
     render admin_coordinates_rank_path
   end
 

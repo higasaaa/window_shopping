@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   # 会員側のルーティング設定
   scope module: :public do
     root to: 'homes#top'
-    get 'about' => 'homes#about', as: 'about'
     resource :customers, only: [:edit, :update]
     get 'customers' => 'customers#show'
     # get 'customers/favorite' => 'customers#favorite', as: 'favorite'

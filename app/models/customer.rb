@@ -26,8 +26,9 @@ class Customer < ApplicationRecord
       customer.password = SecureRandom.urlsafe_base64
       customer.password_confirmation = customer.password
       customer.nickname = "ゲスト"
-      customer.live_area = "東京都"
+      customer.birthdate = "1990-08-03"
       customer.sex = "女性"
+      customer.live_area = "東京都"
     end
   end
 
