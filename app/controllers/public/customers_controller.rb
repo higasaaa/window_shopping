@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
+  # before_action :ensure_guest_customer, only: [:edit]
 
   def favorite
     @customer = current_customer
@@ -39,4 +40,12 @@ class Public::CustomersController < ApplicationController
     def customer_params
       params.require(:customer).permit(:nickname, :email, :birthdate, :live_area)
     end
+
+    # def ensure_guest_customer
+    #   @customer = Customer.find(params[:id])
+    #   if @customer.nickname == "ゲスト"
+    #     flash[:notice] = "ゲストユーザーはプロフィール編集画面へ遷移できません"
+    #     redirect_to customers_path(current_customer)
+    #   end
+    # end
 end

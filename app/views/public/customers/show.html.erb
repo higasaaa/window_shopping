@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-md-6 offset-md-3">
-    <h4 class="text-center ml-auto m-4">My page</h4>
+    <h1 class="d-inline-block px-3 mb-4 mt-4" style="font-size: 25px; background-color: #f2f2f2">My page</h1>
     <table class="table">
     <tbody class="ml-auto">
       <tr>
@@ -25,9 +25,11 @@
       </tr>
     </tbody>
     </table>
+    <% if @customer.nickname != "ゲスト" %>
     <div class="text-right mb-4">
       <%= link_to "Edit mypage", edit_customers_path, class: "btn btn-outline-warning" %>
     </div>
+    <% end %>
   </div>
 </div>
 

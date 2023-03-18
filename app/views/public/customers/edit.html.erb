@@ -1,7 +1,4 @@
-
 <div class="container">
-  <h1 class="col-md-3 offset-3 mt-4" style="font-size: 25px; background-color: #f2f2f2;">Customer edit</h1>
-
   <!--テンプレートerror massage-->
   <div id="error-massage" class="col-md-4 offset-3 mt-4">
     <%= render "layouts/error_massages", model: @customer %>
@@ -10,19 +7,28 @@
   <!--マイページの編集フォーム-->
   <%= form_with model: @customer,url: customers_path(@customer), method: :patch do |f| %>
   <div class="row">
-    <div class="col-md-3 offset-md-3" style="font-size: 18px;">
-      <div><%= f.label :"Nick name" %></div>
-      <div><%= f.label :"Email" %></div>
-      <div><%= f.label :"Birthday" %></div>
-      <div><%= f.label :"Gender" %></div>
-      <div><%= f.label :"Live area" %></div>
-    </div>
-    <div class="col-md-3">
-      <div class="field mb-2"><%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "w-auto"%></div>
-      <div class="field mb-2"><%= f.email_field :email, autofocus: true,autocomplete: "email" %></div>
-      <div class="field mb-2"><%= f.date_select :birthdate, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %></div>
-      <div class="field mb-2"><%= f.select :sex, [["",""], ["女性","女性"], ["男性","男性"]], {} %></div>
-      <div class="field mb-2"><%= f.text_field :live_area %></div>
+    <div class="col-12 col-md-6 mx-auto">
+      <h1 class="d-inline-block px-3 mb-4 mt-4" style="font-size: 25px; background-color: #f2f2f2;">Customer edit</h1>
+      <div class="field mb-2">
+          <%= f.label :nickname %></br>
+          <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "w-100" %>
+      </div>
+      <div class="field mb-2">
+        <%= f.label :email %></br>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100" %>
+      </div>
+      <div class="field mb-2">
+        <%= f.label :birthday %></br>
+        <%= f.date_select :birthdate, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %>
+      </div>
+      <div class="field mb-2">
+        <%= f.label :gender %></br>
+        <%= f.select :sex, [ ["女性","女性"], ["男性","男性"]], { include_blank: "選択してください"} %>
+      </div>
+      <div class="field mb-2">
+        <%= f.label :live_area %></br>
+        <%= f.text_field :live_area, class: "w-100" %>
+      </div>
       <div class="my-3">
         <%= f.submit "Up date", class: "btn btn-warning btn-sm text-light" %>
         <%= link_to "※Withdraw",  customers_confirm_path, class: "btn btn-danger btn-sm mx-4" %>
