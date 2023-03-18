@@ -1,7 +1,6 @@
 class Coordinate < ApplicationRecord
   has_one_attached :image
-  # Admin::CoordinatesController#rankでランクという属性をセットするために使用
-  
+
   attr_accessor :rank
 
   belongs_to :tag
@@ -13,14 +12,14 @@ class Coordinate < ApplicationRecord
   validates :total_price, presence: true
   validates :coordinates_description, presence: true
 
-  def favorited_by?(customer) #引数で渡されたユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べる
+  def favorited_by?(customer)
     favorites.exists?(customer_id: customer.id)
   end
 
-# 検索機能 selfを使うと省略してかける
+# 検索機能
   def self.search(keyword)
-    return all if keyword.blank? #return ここで（all）処理を終える
-    joins(:tag).where("tags.tag_name LIKE ?", "%#{keyword}%") #joinsはモデルと結合する
+    return all if keyword.blank?
+    joins(:tag).where("tags.tag_name LIKE ?", "%#{keyword}%")
   end
 
   def get_coordinate_image
@@ -35,12 +34,4 @@ class Coordinate < ApplicationRecord
     bookmarks.where(customer_id: customer).exists?
   end
 
-# 最初下記で実装、上記に変更したが念の為残しておく
-  # def get_coordinate_image(width, height)
-  #   unless image.attached?
-  #     file_path = Rails.root.join('app/javascript/images/fashion_torso_22957-300x300.jpg')
-  #     image.attach(io:File.open(file_path),filename: 'default-image.jpg', content_type: 'image/jpeg')
-  #   end
-  #   image.variant(resize_to_fill: [width, height]).processed
-  # end
 end

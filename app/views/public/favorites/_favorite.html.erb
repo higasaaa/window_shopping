@@ -1,4 +1,4 @@
-    <% if customer_signed_in? && coordinate.favorited_by?(current_customer) %> <!--signed inしている、かつカレントカスタマーだった場合いいねを外せる-->
+    <% if customer_signed_in? && coordinate.favorited_by?(current_customer) %>
       <%= link_to coordinate_favorites_path(coordinate), method: :delete, remote: true, class: "like-btn text-decoration-none" do %>
       <i class="fas fa-heart"></i><%= coordinate.favorites.count %>
       <% end %>

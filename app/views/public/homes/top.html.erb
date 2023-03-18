@@ -1,4 +1,3 @@
-<!--flash message有-->
 <div class="container">
   <!--top画像-->
   <div class="row">
@@ -14,8 +13,7 @@
     <div class="col-6 col-sm-3">
       <div class="text-center">
         <%= link_to coordinate_path(coordinate.id), class: "coordinate_link" do %>
-          <%= image_tag coordinate.image.variant( resize: "300x270", gravity: "center", crop: "200x220+0+0" ), class: "border-window my-3 img-fluid", style: "object-fit: contain;" %> 
-          <%#= image_tag coordinate.get_coordinate_image(150,150), class: "border-window my-4", style: "border-style: solid: 5px; object-fit: cover;" %>
+          <%= image_tag coordinate.image.variant( resize: "300x270", gravity: "center", crop: "200x220+0+0" ), class: "border-window my-3 img-fluid", style: "object-fit: contain;" %>
         <% end %>
       </div>
     </div>

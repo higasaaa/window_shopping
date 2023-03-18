@@ -1,4 +1,1 @@
-
 document.getElementById('favorite_buttons_<%= @coordinate.id %>').innerHTML = ("<%= j(render "public/favorites/favorite", coordinate: @coordinate ) %>");
-<!--命令形のため、どうなっていくのかがわからない。（最終形態）インスタなどの膨大なデータを扱う時には推奨されない書き方。今回は、いいね機能のみなのでこの書き方で記述した。-->
-<!--jquelyを用いるのは最近では多くないため、javascriptで記述した-->

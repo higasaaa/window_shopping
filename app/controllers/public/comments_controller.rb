@@ -1,4 +1,5 @@
 class Public::CommentsController < ApplicationController
+  before_action :authenticate_customer!
 
   def create
     @coordinate = Coordinate.find(params[:coordinate_id])
@@ -6,7 +7,6 @@ class Public::CommentsController < ApplicationController
     @comment.coordinate_id = @coordinate.id
     if @comment.save
       flash[:notice] = "コメントを投稿しました"
-      # redirect_to coordinate_path(@coordinate) #非同期になるため、下記に変更
       render :create
     else
       render :error
@@ -14,7 +14,7 @@ class Public::CommentsController < ApplicationController
   end
 
   def destroy
-    @coordinate = Coordinate.find(params[:coordinate_id]) #idが存在しないことが想定される場合→find_byメソッドを使用
+    @coordinate = Coordinate.find(params[:coordinate_id])
     @comment = Comment.find_by(id: params[:id], coordinate_id: params[:coordinate_id])
     if @comment.destroy
       flash[:notice] = "コメントを削除しました"

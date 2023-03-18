@@ -1,4 +1,4 @@
-<!--flash message有-->
+
 <div class="container">
   <h1 class="d-inline-block m-4" style="font-size: 25px; background-color: #f2f2f2;">Coordinates</h1>
   <div class="mb-4" style="font-size: 20px;">
@@ -12,6 +12,7 @@
         <th>Tag</th>
         <th>Price</th>
         <th>Favorites</th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -29,9 +30,15 @@
         <td><%= coordinate.tag.tag_name %></td>
         <td>￥<%= coordinate.total_price.to_s(:delimited) %></td>
         <td><i class="fas fa-heart"></i><%= coordinate.favorites.count %></td>
-        <td><%= link_to "Edit", edit_admin_coordinate_path(coordinate.id), class: "btn btn-outline-secondary text-dark" %></td>
+        <td>
+          <%= link_to "Edit", edit_admin_coordinate_path(coordinate.id), class: "btn btn-sm btn-outline-secondary text-dark mb-2" %></br>
+        </td>
+        <td>
+          <%= link_to "Destroy", admin_coordinate_path(coordinate.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger" %>
+        </td>
       </tr>
       <% end %>
     </tbody>
   </table>
+  <%= paginate @coordinates %>
 </div>

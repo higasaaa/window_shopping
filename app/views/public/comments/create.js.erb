@@ -1,9 +1,4 @@
-<!--id="comments_areaにをrenderで指定した部分テンプレートに更新-->
-<!--$("#comments_area").html("<%#= j(render 'public/comments/index', comment: @comment) %>");-->
-<!--$("#comments_form").html("<%#= j(render 'public/comments/form', coordinate: @coordinate, comment: @comment) %>");-->
-
 document.getElementById("comments-area").innerHTML = ("<%= j(render 'public/comments/index', coordinate: @coordinate) %>");
-
 document.getElementById('comment_content').value = '';
 
 <!--flash massage-->

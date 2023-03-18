@@ -14,7 +14,7 @@ class Customer < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: {minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, length: {minimum: 6 }, on: :create
-  # 上記の２つのパスワードが一致していなかったらプライベート下の処理を実行する
+  # :password,:password_confirmationのパスワードが一致していなかったらprivateの処理を実行する
   validate :check_password
   validates :live_area, presence: true
   validates :sex, inclusion: { in: ["女性","男性"] }
@@ -32,7 +32,7 @@ class Customer < ApplicationRecord
     end
   end
 
-  # is_deletedがfalseならtrueを返すようにしている
+  
   def active_for_authentication?
     super && (is_deleted == false)
   end

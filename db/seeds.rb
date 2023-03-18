@@ -57,7 +57,7 @@
   20.times do |n|
     time = Time.now - rand(2).month #現在から２ヶ月前まで
 
-    customer_id = rand(5) + 1 # ユーザー増えたときはrandを変更
+    customer_id = rand(10) + 1 # ユーザー増えたときはrandを変更
     coordinate_id = rand(9) + 1 # コーディネートの数が増えたときは、randを変更
 
     favorite = Favorite.find_by(customer_id: customer_id, coordinate_id: coordinate_id) #カスタマーとコーデんを探してnilだった場合下記を実行する
@@ -72,4 +72,7 @@
     end
   end
   
+  # コメントのデータ
+  
+ 
  

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     get 'bookmarks/create'
     get 'bookmarks/destroy'
   end
-  
-  # 会員側のルーティング設定
+
+  # 顧客側
   scope module: :public do
     root to: 'homes#top'
     resource :customers, only: [:edit, :update]
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [:index]
     resources :coordinates, only: [:index, :show] do
       resource :bookmarks, only: [:create, :destroy]
-      resources :comments, only: [:destroy, :create] #update,index削除した
+      resources :comments, only: [:destroy, :create]
       resource :favorites, only: [:create, :destroy]
     end
   end
@@ -23,12 +23,12 @@ Rails.application.routes.draw do
     post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
 
-   # 管理者側のルーティング設定
+   # 管理者側
    namespace :admin do
     get '/' => 'customers#index'
     get 'coordinates/rank' => 'coordinates#rank'
     get 'coordinates/rank/:year/:month' => 'coordinates#monthly_rank'
-    resources :coordinates, only: [:new, :create, :index, :edit, :update, :show] do
+    resources :coordinates, only: [:new, :create, :index, :edit, :update, :show, :destroy] do
       resources :comments, only: [:destroy]
     end
 
@@ -47,6 +47,6 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
 }
 end
- 
+
 
 
