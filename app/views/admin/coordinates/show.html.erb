@@ -1,10 +1,38 @@
 
 <div class="container">
   <h1 class="m-4 col-3" style="font-size: 25px; background-color: #f2f2f2;">Coordinate comments</h1>
-  <div class="mb-4">
-      <%= image_tag @coordinate.get_coordinate_image, style: "height: 400px; width: 400px; object-fit: contain;" %>
-  </div>
+  <!--<div class="mb-4">-->
+  <!--  <%#= image_tag @coordinate.get_coordinate_image, style: "height: 400px; width: 400px; object-fit: contain;" %>-->
+  <!--</div>-->
 
+<div class="row my-5">
+    <div class="mb-5"><%= image_tag @coordinate.get_coordinate_image, style: "height: 400px; width: 400px; object-fit: contain;" %></div>
+    <div class="col-sm-12 col-md-6">
+      <div class="mt-3 ml-3" style="font-size: 20px;">
+        Posted date :
+        <%= l @coordinate.created_at %>
+      </div>
+
+      <div class="mt-3 ml-3" style="font-size: 20px;">
+        Price :
+       ￥<%= @coordinate.total_price.to_s(:delimited) %>
+      </div>
+
+      <div class="mt-3 ml-3" style="font-size: 20px;">
+        Tag  :
+        <%= @coordinate.tag.tag_name %>
+      </div>
+
+      <div class="mt-3 ml-3" style="font-size: 20px;">
+        Favorites <i class="fas fa-heart"></i> :
+        <%= @coordinate.favorites.count %>
+      </div>
+
+      <div class="mt-3 ml-3" style="font-size: 20px;">
+        Description :
+        <p><%= @coordinate.coordinates_description %></p>
+      </div>
+    </div>
   <!--テンプレートコメント一覧、削除-->
   <%= render "admin/comments/index", comments: @comments %>
 </div>
