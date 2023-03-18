@@ -41,7 +41,7 @@
 }
 
 
-// ハンバーガーの色をRGBAで変更
+// ハンバーガー(三本線色変更)
 .navbar-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
@@ -50,30 +50,25 @@
   background-color: #f2f2f2;
 }
 
+// ページネーション
 .pagination {
   justify-content: center;
 }
 
-
-
 /*ページネーション自体のデザイン*/
 .pagination>li>a {
-  color:  #666666;   /*文字の色を変える*/
+  color:  #666666;
 }
 
-/* 表示しているページ番号のデザイン */
 .pagination>.active>a {
-  background: white;     /*背景の色を変える*/
+  background: white;
 }
-
 
 .page-item.active .page-link {
-    // z-index: 3;
     color: black;
     background-color: white;
     border-color: #666666;
 }
-
 .pagination>li>a:hover {
   color: black;
 }
@@ -88,5 +83,3 @@
   border: 2px solid #DC143C;;
   padding: 3px;
 }
-
-// 
