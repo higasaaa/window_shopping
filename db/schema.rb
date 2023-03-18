@@ -70,10 +70,8 @@ ActiveRecord::Schema.define(version: 2023_03_09_030359) do
 
   create_table "coordinates", force: :cascade do |t|
     t.integer "tag_id"
-    t.integer "favorite_id"
     t.text "coordinates_description", null: false
     t.integer "total_price", null: false
-    t.integer "bookmark_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
