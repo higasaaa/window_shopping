@@ -8,10 +8,10 @@
     <thead class="border-bottom border-top border-secondary" style="background-color: #f2f2f2;">
       <tr class="d-none d-sm-table-row">
         <th></th>
-        <th>coordinate ID</th>
-        <th>tag</th>
-        <th>price</th>
-        <th>favorites</th>
+        <th>Coordinate ID</th>
+        <th>Tag</th>
+        <th>Price</th>
+        <th>Favorites</th>
         <th></th>
       </tr>
     </thead>
@@ -21,7 +21,9 @@
         <td>
           <%= link_to admin_coordinate_path(coordinate.id) do %>
             <%= image_tag coordinate.get_coordinate_image, style: "height: 100px; width: 100px; object-fit: contain;" %>
-          <% end %>
+          <% end %></br>
+          Click here<i class="fas fa-long-arrow-alt-up"></i></br>
+          for customers comment
         </td>
         <td><%= coordinate.id %></td>
         <td><%= coordinate.tag.tag_name %></td>

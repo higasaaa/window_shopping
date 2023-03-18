@@ -1,13 +1,14 @@
-<!--月別ランキングのview-->
-<div>
-  <% if @year %>
-  <%= @year %>年 <%= @month %>月
-  <% end %>
-</div>
+
 
 <!--いいね順コーデランキング-->
 <div class="container">
   <h1 class="d-inline-block px-3 mb-4 mt-4" style="font-size: 25px; background-color: #f2f2f2;">Favorites All Ranking</h1>
+  <!--月別ランキングのview-->
+  <div style="font-size: 20px;">
+    <% if @year %>
+      <%= @year %>年 <%= @month %>月
+    <% end %>
+  </div>
   <div class="d-flex flex-wrap">
     <% @all_ranks.each.with_index(1) do |coordinate, i| %>
     <div class="col-3">

@@ -5,14 +5,14 @@
   <%= form_with url: coordinates_path, method: :get, local: true do |f| %>
   <div class="input-group col-sm-3 col-md-6">
     <%= f.text_field :keyword, value: params[:keyword], class: "form-control" %>
-    <%= f.submit "search", class: "btn btn-outline-secondary btn-sm mx-3" %>
+    <%= f.submit "Search", class: "btn btn-outline-secondary btn-sm mx-3" %>
   <% end %>
   </div>
 
   <!--コーディネート一覧-->
   <div class="d-flex flex-wrap">
     <% @coordinates.each do |coordinate| %>
-    <div class="col-6 col-sm-3">
+    <div class="coordinate-img col-6 col-sm-3">
       <div>
         <%= link_to coordinate_path(coordinate.id), class: "coordinate_link" do %>
           <%= image_tag coordinate.image.variant( resize: "250x250", gravity: "center", crop: "200x210+0+0" ), class: "img-fluid my-3", style: "object-fit: contain;" %>

@@ -11,7 +11,7 @@
   puts "adminを作成しました"
 
 # 顧客データ
-  5.times do |n|
+  10.times do |n|
     Customer.create!(
       email: "customer#{n + 1}@customer.com",
       password: "password#{n + 1}",
@@ -44,15 +44,21 @@
       {tag_id: Tag.all[1].id, total_price: 10000, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-coordinate2.jpg"), filename:"sample-coordinate2.jpg"), coordinates_description: '美しいシルエットを描くフィット感ロングワンピースです。また、上質な生地の持つ着心地感とスタイルアップをサポートしてくれるオススメアイテムです。'},
       {tag_id: Tag.all[2].id, total_price: 12000, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-coordinate4.jpg"), filename:"sample-coordinate4.jpg"), coordinates_description: '美しいシルエットを描くフィット感ロングワンピースです。また、上質な生地の持つ着心地感とスタイルアップをサポートしてくれるオススメアイテムです。'},
       {tag_id: Tag.all[3].id, total_price: 7000, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-coordinate3.jpg"), filename:"sample-coordinate3.jpg"), coordinates_description: '美しいシルエットを描くフィット感ロングワンピースです。また、上質な生地の持つ着心地感とスタイルアップをサポートしてくれるオススメアイテムです。'},
+      {tag_id: Tag.all[0].id, total_price: 8000, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-coordinate5.jpg"), filename:"sample-coordinate5.jpg"), coordinates_description: '美しいシルエットを描くフィット感ロングワンピースです。また、上質な生地の持つ着心地感とスタイルアップをサポートしてくれるオススメアイテムです。'},
+      {tag_id: Tag.all[3].id, total_price: 9000, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-coordinate6.jpg"), filename:"sample-coordinate6.jpg"), coordinates_description: '美しいシルエットを描くフィット感ロングワンピースです。また、上質な生地の持つ着心地感とスタイルアップをサポートしてくれるオススメアイテムです。'},
+      {tag_id: Tag.all[3].id, total_price: 13000, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-coordinate7.jpg"), filename:"sample-coordinate7.jpg"), coordinates_description: '美しいシルエットを描くフィット感ロングワンピースです。また、上質な生地の持つ着心地感とスタイルアップをサポートしてくれるオススメアイテムです。'},
+      {tag_id: Tag.all[4].id, total_price: 12000, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-coordinate8.jpg"), filename:"sample-coordinate8.jpg"), coordinates_description: '美しいシルエットを描くフィット感ロングワンピースです。また、上質な生地の持つ着心地感とスタイルアップをサポートしてくれるオススメアイテムです。'},
+      {tag_id: Tag.all[3].id, total_price: 13000, image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-coordinate9.jpg"), filename:"sample-coordinate9.jpg"), coordinates_description: '美しいシルエットを描くフィット感ロングワンピースです。また、上質な生地の持つ着心地感とスタイルアップをサポートしてくれるオススメアイテムです。'}
     ]
   )
   puts "coordinateを作成しました"
 
+# いいねのデータ
   20.times do |n|
     time = Time.now - rand(2).month #現在から２ヶ月前まで
 
     customer_id = rand(5) + 1 # ユーザー増えたときはrandを変更
-    coordinate_id = rand(4) + 1 # コーディネートの数が増えたときは、randを変更
+    coordinate_id = rand(9) + 1 # コーディネートの数が増えたときは、randを変更
 
     favorite = Favorite.find_by(customer_id: customer_id, coordinate_id: coordinate_id) #カスタマーとコーデんを探してnilだった場合下記を実行する
 
@@ -65,3 +71,5 @@
       )
     end
   end
+  
+ 
