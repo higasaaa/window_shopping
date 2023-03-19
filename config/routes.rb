@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   # 顧客側
   scope module: :public do
     root to: 'homes#top'
-    resource :customers, only: [:edit, :update]
     get 'customers' => 'customers#show'
     patch '/customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     get 'customers/confirm' => 'customers#confirm'
+    resource :customers, only: [:edit,:update] 
     resources :bookmarks, only: [:index]
     resources :coordinates, only: [:index, :show] do
       resource :bookmarks, only: [:create, :destroy]
