@@ -31,16 +31,20 @@
 
 ## 設計書
 - テーブル定義書
+- https://docs.google.com/spreadsheets/d/1H7veq3w3DYji-zmsy1cyYg_w3PswC6u7DpzQ4RNK9Vc/edit#gid=720699009
 - アプリケーション詳細設計書
-- ER図
+- https://docs.google.com/spreadsheets/d/1q2yT5lUK9lWKSyTOrz6ydDqODPvJrCMY_FhU5PWknfw/edit#gid=2030876093
+- ER図、ワイヤーフレーム
+- https://drive.google.com/drive/u/0/folders/1KOkbTnTOw-6DvqHMfob5wSfNsE83-i0o
 - WBS(タスク)
+- https://docs.google.com/spreadsheets/d/1vCI7-aBaidibdKYKvtRGKpdWin5pwkxk6da_dxmmbOw/edit#gid=1773513600
 - テスト仕様書
+- https://docs.google.com/spreadsheets/d/1_4xSy0RaXHXF-S7ZQoIjTjd2FfKw-T9I/edit#gid=221574259
 
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
 - IDE：Cloud9
 
 ## 使用素材
