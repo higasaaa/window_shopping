@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'bookmarks/create'
-    get 'bookmarks/destroy'
-  end
 
   # 顧客側
   scope module: :public do
