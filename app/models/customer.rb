@@ -1,6 +1,4 @@
 class Customer < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -14,7 +12,7 @@ class Customer < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: {minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, length: {minimum: 6 }, on: :create
-  # :password,:password_confirmationのパスワードが一致していなかったらprivateの処理を実行する
+  
   validate :check_password
   validates :live_area, presence: true
   validates :sex, inclusion: { in: ["女性","男性"] }

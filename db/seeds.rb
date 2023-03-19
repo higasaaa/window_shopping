@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 # 管理者ログイン情報
   Admin.create!(email: 'admin@admin.com', password: 'window')
@@ -55,12 +48,12 @@
 
 # いいねのデータ
   20.times do |n|
-    time = Time.now - rand(2).month #現在から２ヶ月前まで
+    time = Time.now - rand(2).month 
 
-    customer_id = rand(10) + 1 # ユーザー増えたときはrandを変更
-    coordinate_id = rand(9) + 1 # コーディネートの数が増えたときは、randを変更
+    customer_id = rand(10) + 1
+    coordinate_id = rand(9) + 1
 
-    favorite = Favorite.find_by(customer_id: customer_id, coordinate_id: coordinate_id) #カスタマーとコーデんを探してnilだった場合下記を実行する
+    favorite = Favorite.find_by(customer_id: customer_id, coordinate_id: coordinate_id)
 
     if favorite.nil?
       Favorite.create!(

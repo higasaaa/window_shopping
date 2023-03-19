@@ -93,7 +93,6 @@ class Admin::CoordinatesController < ApplicationController
       c.rank = last_rank
       c
     end
-
     render admin_coordinates_rank_path
   end
 

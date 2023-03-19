@@ -1,7 +1,4 @@
-
-
 class Public::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
 
  #ゲストログイン用
   def guest_sign_in
@@ -24,8 +21,5 @@ class Public::SessionsController < Devise::SessionsController
       end
     end
   end
-
-
-
-
+  
 end
