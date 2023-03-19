@@ -29,12 +29,10 @@
         <%= f.label :live_area %></br>
         <%= f.text_field :live_area, class: "w-100" %>
       </div>
-      <% if @customer.email != "guest@example.com" %>
       <div class="my-3">
         <%= f.submit "Up date", class: "btn btn-warning btn-sm text-light" %>
         <%= link_to "※Withdraw",  customers_confirm_path, class: "btn btn-danger btn-sm mx-4" %>
       </div>
-      <% end %>
     </div>
   </div>
   <% end %>
