@@ -6,10 +6,10 @@ class Coordinate < ApplicationRecord
   belongs_to :tag
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :bookmarks,
-  dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  # has_many :customers, through: :bookmarks
 
-  validates :total_price, presence: true
+  validates :total_price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   validates :coordinates_description, presence: true
 
   def favorited_by?(customer)
@@ -19,7 +19,7 @@ class Coordinate < ApplicationRecord
 # 検索機能
   def self.search(keyword)
     return all if keyword.blank?
-    joins(:tag).where("tags.tag_name LIKE ?", "%#{keyword}%")
+    joins(:tag).where("coordinates_description LIKE? or tags.tag_name LIKE ?", "%#{keyword}%", "%#{keyword}%").distinct
   end
 
   def get_coordinate_image

@@ -48,7 +48,7 @@
 
 # いいねのデータ
   20.times do |n|
-    time = Time.now - rand(2).month 
+    time = Time.now - rand(2).month
 
     customer_id = rand(10) + 1
     coordinate_id = rand(9) + 1

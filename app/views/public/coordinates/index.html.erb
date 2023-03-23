@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="d-inline-block px-3 mb-4 mt-4" style="font-size: 25px; background-color: #f2f2f2">Coordinate Lists</h1>
+  <h1 class="d-inline-block px-3 mb-4 mt-4">Coordinate Lists</h1>
 
   <!--検索機能-->
   <%= form_with url: coordinates_path, method: :get, local: true do |f| %>
@@ -26,7 +26,7 @@
         <%= render "public/favorites/favorite", coordinate: coordinate %>
       </div>
 
-      <!--お気に入り機能-->
+      <!--ブックマーク-->
       <div id="bookmark_buttons_<%= coordinate.id %>" class="mb-4">
         <%= render "public/bookmarks/bookmark", coordinate: coordinate %>
       </div>

@@ -5,6 +5,8 @@ class Public::CoordinatesController < ApplicationController
     @coordinates = Coordinate.search(params[:keyword]).page(params[:page]).per(8)
   end
 
+  
+
   def show
     @coordinate = Coordinate.find(params[:id])
     @comment = Comment.new

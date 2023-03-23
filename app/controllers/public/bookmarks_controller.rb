@@ -3,7 +3,7 @@ class Public::BookmarksController < ApplicationController
 
   def index
     @customer = current_customer
-    @bookmarks = Bookmark.where(customer_id: @customer.id).all
+    @coordinates = @customer.coordinates
   end
 
   def create

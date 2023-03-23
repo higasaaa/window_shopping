@@ -3,6 +3,8 @@ class Customer < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  # through上記に記述してあるbookmarkを通してcoordinateをとってくるという意味
+  has_many :coordinates, through: :bookmarks
 
 
   devise :database_authenticatable, :registerable,
@@ -12,7 +14,7 @@ class Customer < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: {minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, length: {minimum: 6 }, on: :create
-  
+
   validate :check_password
   validates :live_area, presence: true
   validates :sex, inclusion: { in: ["女性","男性"] }

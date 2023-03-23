@@ -1,7 +1,6 @@
 document.getElementById("comments-area").innerHTML = ("<%= j(render 'public/comments/index', coordinate: @coordinate) %>");
 document.getElementById('comment_content').value = '';
-
-<!--flash massage-->
+document.getElementById("comments-error").innerHTML ='';
 document.getElementById("flash-massage").innerHTML = ("<%= j(render 'layouts/flash') %>");
 
 

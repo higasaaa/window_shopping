@@ -8,7 +8,7 @@
   <%= form_with model: @customer,url: customers_path(@customer), method: :patch do |f| %>
   <div class="row">
     <div class="col-12 col-md-6 mx-auto">
-      <h1 class="d-inline-block px-3 mb-4 mt-4" style="font-size: 25px; background-color: #f2f2f2;">Customer edit</h1>
+      <h1 class="d-inline-block px-3 mb-4 mt-4">Customer edit</h1>
       <div class="field mb-2">
           <%= f.label :nickname %></br>
           <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "w-100" %>
