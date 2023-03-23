@@ -19,20 +19,23 @@
       </div>
 
       <div class="mt-3 ml-3" style="font-size: 20px;">
-        Favorites <i class="fas fa-heart"></i> :
+        favorites | Bookmarks
+      </div>
         <!--いいね機能-->
-      <div id="favorite_buttons_<%= @coordinate.id %>">
+      <div id="favorite_buttons_<%= @coordinate.id %>" class="mt-3 ml-3 mx-5" style="float: left;">
         <%= render "public/favorites/favorite", coordinate: @coordinate %>
       </div>
+        <!--ブックマーク-->
+      <div id="bookmark_buttons_<%= @coordinate.id %>" class="mt-3 ml-3" style="float: lef;">
+        <%= render "public/bookmarks/bookmark", coordinate: @coordinate %>
       </div>
 
-      <div class="mt-3 ml-3" style="font-size: 20px;">
+
+
+
+      <div class="mt-3 ml-3 my-3" style="font-size: 20px; overflow:  hidden;">
         Description :
         <p><%= @coordinate.coordinates_description %></p>
-      </div>
-
-      <div id="bookmark_buttons_<%= @coordinate.id %>" class="mb-4">
-        <%= render "public/bookmarks/bookmark", coordinate: @coordinate %>
       </div>
 
     </div>
