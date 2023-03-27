@@ -53,17 +53,22 @@ class Admin::CoordinatesController < ApplicationController
       .limit(20)
       .select('coordinates.*, tags.tag_name, count(favorites.id) AS cnt')
 
-
+# ランキングのための変数設定
     last_rank = 0
-    last_fav_count = Float::INFINITY
 
-    @all_ranks = @all_ranks.map do |c|
-      if c.favorites.count < last_fav_count
-        last_rank += 1
-        last_fav_count = c.favorites.count
+    last_fav_count = 0
+    index = 0
+#　Coordinateの1つ1つにrankを付与していく
+    @all_ranks.each do |c|
+      # byebug
+      if c.favorites.count < last_fav_count || index.zero? #　一個前のCoordinateよりいいね数が少なかったら
+        last_rank += 1 #ランクを1つあげる
+        last_fav_count = c.favorites.count # いいねカウントも更新
       end
-      c.rank = last_rank
-      c
+
+      index += 1
+      c.rank = last_rank #rankを付与していく
+      
     end
   end
 

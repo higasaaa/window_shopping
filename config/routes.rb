@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     get 'customers' => 'customers#show'
     patch '/customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     get 'customers/confirm' => 'customers#confirm'
-    # get 'coordinates/bookmark' => 'coordinates#bookmark' 
     resource :customers, only: [:edit,:update] 
     resources :bookmarks, only: [:index]
     resources :coordinates, only: [:index, :show] do

@@ -9,8 +9,4 @@ class Admin::CommentsController < ApplicationController
     redirect_to admin_coordinate_path(@coordinate)
   end
 
-  def comment_params
-    params.require(:comment).permit(:content)
-  end
-
 end

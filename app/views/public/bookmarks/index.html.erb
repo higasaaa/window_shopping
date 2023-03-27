@@ -12,7 +12,6 @@
       <div><%= coordinate.tag.tag_name %></div>
       <div>￥<%= coordinate.total_price.to_s(:delimited) %></div>
       <div><%= l coordinate.created_at %></div>
-
       <div id="bookmark_buttons_<%= coordinate.id %>" class="mb-4">
         <%= render "public/bookmarks/bookmark", coordinate: coordinate %>
       </div>

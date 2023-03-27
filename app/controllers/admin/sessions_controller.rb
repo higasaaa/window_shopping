@@ -1,4 +1,3 @@
-
 class Admin::SessionsController < Devise::SessionsController
 
   protected
