@@ -55,20 +55,18 @@ class Admin::CoordinatesController < ApplicationController
 
 # ランキングのための変数設定
     last_rank = 0
-
     last_fav_count = 0
     index = 0
-#　Coordinateの1つ1つにrankを付与していく
+
     @all_ranks.each do |c|
-      # byebug
-      if c.favorites.count < last_fav_count || index.zero? #　一個前のCoordinateよりいいね数が少なかったら
-        last_rank += 1 #ランクを1つあげる
-        last_fav_count = c.favorites.count # いいねカウントも更新
+      if c.favorites.count < last_fav_count || index.zero?
+        last_rank += 1
+        last_fav_count = c.favorites.count
       end
 
       index += 1
-      c.rank = last_rank #rankを付与していく
-      
+      c.rank = last_rank
+
     end
   end
 
@@ -76,7 +74,6 @@ class Admin::CoordinatesController < ApplicationController
   def monthly_rank
     @year = params[:year].to_i
     @month = params[:month].to_i
-
 
     @all_ranks = Coordinate
       .joins(:tag, :favorites)
@@ -86,17 +83,17 @@ class Admin::CoordinatesController < ApplicationController
       .limit(20)
       .select('coordinates.*, tags.tag_name, count(favorites.id) AS cnt')
 
-
     last_rank = 0
-    last_fav_count = Float::INFINITY
+    last_fav_count = 0
+    index = 0
 
-    @all_ranks = @all_ranks.map do |c|
-      if c.favorites.count < last_fav_count
+    @all_ranks.each do |c|
+      if c.favorites.count < last_fav_count || index.zero?
         last_rank += 1
         last_fav_count = c.favorites.count
       end
+      index += 1
       c.rank = last_rank
-      c
     end
     render admin_coordinates_rank_path
   end
