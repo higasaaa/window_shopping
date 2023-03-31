@@ -2,20 +2,6 @@
   <h1 class="d-inline-block px-3 mb-4 mt-4">Bookmarks</h1>
   <div class="d-flex flex-wrap">
     <!--ブックマーク一覧-->
-    <% @coordinates.each do |coordinate| %>
-    <div class="col-6 col-sm-3">
-      <div>
-        <%= link_to coordinate_path(coordinate.id) do %>
-          <%= image_tag coordinate.image.variant( resize: "250x250", gravity: "center", crop: "200x210+0+0" ), class: "img-fluid my-3", style: "object-fit: contain;" %>
-        <% end %>
-      </div>
-      <div><%= coordinate.tag.tag_name %></div>
-      <div>￥<%= coordinate.total_price.to_s(:delimited) %></div>
-      <div><%= l coordinate.created_at %></div>
-      <div id="bookmark_buttons_<%= coordinate.id %>" class="mb-4">
-        <%= render "public/bookmarks/bookmark", coordinate: coordinate %>
-      </div>
-    </div>
-    <% end %>
+    <%= render partial: "public/coordinates/content", collection: @coordinates, as: :coordinate, locals: { display_favorite: false } %>
   </div>
 </div>
